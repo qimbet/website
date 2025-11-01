@@ -274,12 +274,6 @@ a:hover {
   #sidebar.open + #sidebar-tab {
     left: var(--sidebar-width); /* moves with sidebar edge */
   }
-  #sidebar-tab span {
-    display: inline-block;
-    transform: translateY(2px); /* shifts arrow down 2px */
-    transform: translateX(1px);
-  }
-
   /* Flip when sidebar open */
   #sidebar-tab span {
     display: inline-block;
@@ -290,10 +284,6 @@ a:hover {
     transform: scaleX(-1);
   }
 
-  /* Hide tab on desktop */
-  #sidebar-tab {
-    display: block;
-  }
 }
 
 
