@@ -254,6 +254,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     position: fixed;
+    line-height: 1;
     top: 16.666%; /* 1/6 of viewport height */
     left: 260px; /* right edge of sidebar */
     width: 2rem;
@@ -271,9 +272,13 @@ a:hover {
   }
 
   /* Flip when sidebar open */
-  #sidebar-tab.open {
-    transform: scaleX(-1); /* mirror horizontally */
-    left: calc(260px - 2rem); /* moves with sidebar edge */
+  #sidebar-tab span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  #sidebar-tab.open span {
+    transform: scaleX(-1);
   }
 
   /* Hide tab on desktop */
