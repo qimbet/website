@@ -32,6 +32,7 @@
 
   --shadow: rgba(0,0,0,0.15); 
 
+  --sidebar-width: 260px;
   --text-scale: 0.9;
   --sidebarElementPadding:1.2rem;
 }
@@ -98,7 +99,7 @@ a:hover {
    --- Sidebar ---
    ========================= */
 #sidebar {
-  width: 260px;
+  width: var(--sidebar-width);
   background-color: var(--sidebar-bg);
   padding: 1rem;
   overflow-y: auto;
@@ -221,7 +222,7 @@ a:hover {
     top: 0;
     left: 0;
     height: 100%;
-    width: 260px;
+    width: var(--sidebar-width);
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     z-index: 1000;
@@ -271,7 +272,11 @@ a:hover {
     transition: left 0.3s ease-in-out, background-color 0.3s ease
   }
   #sidebar.open + #sidebar-tab {
-    left: 260px; /* moves with sidebar edge */
+    left: var(--sidebar-width); /* moves with sidebar edge */
+  }
+  #sidebar-tab span {
+    display: inline-block;
+    transform: translateY(2px); /* shifts arrow down 2px */
   }
 
   /* Flip when sidebar open */
