@@ -215,28 +215,7 @@ a:hover {
 /* Mobile Sidebar */
 
 @media (max-width: 768px) {
-  #sidebar-tab {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 16.666%; /* 1/6 of viewport height */
-    left: 0;
-    width: 2rem;
-    height: 2rem;
-    background-color: var(--sidebar-bg);
-    color: var(--sidebar-title);
-    font-weight: bold;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 1100;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-  }
 
-  /* Sidebar slides in/out */
   #sidebar {
     position: fixed;
     top: 0;
@@ -254,7 +233,7 @@ a:hover {
     transform: translateX(0);
   }
 
-  /* Overlay behind sidebar */
+  /* Overlay for UX */
   #sidebar-overlay {
     display: none;
     position: fixed;
@@ -265,16 +244,44 @@ a:hover {
     background: rgba(0,0,0,0.4);
     z-index: 900;
   }
-
   #sidebar-overlay.active {
     display: block;
   }
 
-  /* Flip the tab symbol when sidebar is open */
+  /* Sidebar tab toggle */
+  #sidebar-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 16.666%; /* 1/6 of viewport height */
+    left: 260px; /* right edge of sidebar */
+    width: 2rem;
+    height: 4rem; /* doubled height */
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-title);
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1100;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, left 0.3s ease;
+  }
+
+  /* Flip when sidebar open */
   #sidebar-tab.open {
-    transform: translateY(-50%) scaleX(-1); /* mirror horizontally */
+    transform: scaleX(-1); /* mirror horizontally */
+    left: calc(260px - 2rem); /* moves with sidebar edge */
+  }
+
+  /* Hide tab on desktop */
+  #sidebar-tab {
+    display: block;
   }
 }
+
 
 /* =========================
    --- Main Content ---
