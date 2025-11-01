@@ -209,13 +209,13 @@ a:hover {
 
 /* Hide tab by default on desktop */
 #sidebar-tab {
+  transition: left 0.3s ease-in-out, background-color 0.3s ease;
   display: none;
 }
 
 /* Mobile Sidebar */
 
 @media (max-width: 768px) {
-
   #sidebar {
     position: fixed;
     top: 0;
@@ -223,7 +223,7 @@ a:hover {
     height: 100%;
     width: 260px;
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out;
     z-index: 1000;
     overflow-y: auto;
     border-right: 1px solid var(--sidebar-border);
@@ -268,7 +268,7 @@ a:hover {
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
-    transition: transform 0.3s ease, left 0.3s ease;
+    transition: left 0.3s ease-in-out, background-color 0.3s ease
   }
   #sidebar.open + #sidebar-tab {
     left: 260px; /* moves with sidebar edge */

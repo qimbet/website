@@ -2,7 +2,7 @@ $folder = Get-Location
 
 # Code to insert at the top (right after <body>)
 $codeAtBodyStart = @"
- <div id="sidebar-tab">⟩</div>
+ <div id="sidebar-tab"><span>⟩</span></div>
 <div id='sidebar-overlay'></div>
 "@
 
