@@ -256,7 +256,7 @@ a:hover {
     position: fixed;
     line-height: 1;
     top: 16.666%; /* 1/6 of viewport height */
-    left: 260px; /* right edge of sidebar */
+    left: 0px; /* left edge of screen */
     width: 2rem;
     height: 4rem; /* doubled height */
     background-color: var(--sidebar-bg);
@@ -269,6 +269,9 @@ a:hover {
     border-bottom-right-radius: 0.5rem;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
     transition: transform 0.3s ease, left 0.3s ease;
+  }
+  #sidebar.open + #sidebar-tab {
+    left: 260px; /* moves with sidebar edge */
   }
 
   /* Flip when sidebar open */
