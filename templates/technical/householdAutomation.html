@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob | Technical Portfolio</title>
+      <link rel="stylesheet" href="/static/styles.css">
+  </head>
+
+  <body>
+    <div id="container">
+
+      <aside id="sidebar">
+        <h2 class="sidebar-title">
+          <a href="/templates/index.html">☰ Portfolio</a>
+        </h2>
+
+      <div class="section">
+        <input type="checkbox" id="projects-toggle" checked>
+        <label for="projects-toggle">Projects</label>
+        <ul>
+
+          <!-- Technical Projects -->
+          <li>
+            <div class="section">
+              <input type="checkbox" id="technical-toggle">
+              <label for="technical-toggle">Technical</label>
+              <ul>
+                <li><a href="/templates/technical/hydroponics.html">Hydroponics</a></li>
+                <li><a href="/templates/technical/submarine.html">Submarine</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- Artistic Projects -->
+          <li>
+            <div class="section">
+              <input type="checkbox" id="hobbies-toggle">
+              <label for="hobbies-toggle">Artistic</label>
+              <ul>
+                <li><a href="/templates/hobbies/brewing.html">Brewing</a></li>
+                <li><a href="/templates/hobbies/cookbook.html">Cookbook</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+        <div class="section">
+          <input type="checkbox" id="blog-toggle" checked>
+          <label for="blog-toggle">Resources</label>
+          <ul>
+            <li><a href="/templates/resources/cadArchive.html">CAD Files</a></li>
+            <li><a href="/templates/resources/circuitArchive.html">Circuit Diagrams</a></li>
+          </ul>
+        </div>      
+
+        <div class="section">
+          <input type="checkbox" id="blog-toggle" checked>
+          <label for="blog-toggle">Blog</label>
+          <ul>
+            <li><a href="#automation-tips">Automation Tips</a></li>
+            <li><a href="#data-pipelines">Data Pipeline Insights</a></li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <input type="checkbox" id="about-toggle" checked>
+          <label for="about-toggle">About / Resume</label>
+          <ul>
+            <li><a href="/templates/index.html">About Me</a></li>
+            <li>
+              <a href="/templates/resumes.html">Resume PDF</a>
+            </li>
+            <li><a href="/templates/timeline.html">Timeline</a></li>
+          </ul>
+        </div>
+
+        <div class="section contact">
+          <label class="no-arrow">Contact</label>
+          <ul>
+            <li><a href="mailto:youremail@example.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+            <li><a href="https://calendly.com/yourname/coffee-chat" target="_blank">Book a Coffee Chat</a></li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Content -->
+      <main id="content">
+
+        
+        <h1>Welcome!</h1>
+        <p>Hello, I'm Jacob, a data and software-oriented engineer specializing in Python, SQL, Linux, embedded systems, and automation. Browse my Technical Projects, blog, and resume using the sidebar.</p>
+
+        <section id="hydroponics">
+          <h2>Hydroponics Automation</h2>
+          <p>Designed a fully automated modular hydroponics system using ESP32, relays, and sensors. Planning integration of robotic arm pollination using computer vision.</p>
+        </section>
+
+
+
+      </main>
+
+    </div>
+  </body>
+
+</html>
+
+
+<script>
+  // Get current page file name
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Select all sidebar links
+  const links = document.querySelectorAll("#sidebar ul li a");
+
+  links.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>

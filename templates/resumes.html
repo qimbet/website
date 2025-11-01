@@ -1,77 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jacob | Technical Portfolio</title>
-<link rel="stylesheet" href="../static/styles.css">
-</head>
-<body>
-<div id="container">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob | Technical Portfolio</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
 
-    
-  <!-- Sidebar -->
-  <aside id="sidebar">
-    <h2 class="sidebar-title">
-      <a href="index.html">☰ Portfolio</a>
-    </h2>
+  <body>
+    <div id="container">
 
-    <div class="section">
+      <aside id="sidebar">
+        <h2 class="sidebar-title">
+          <a href="/templates/index.html">☰ Portfolio</a>
+        </h2>
+
+      <div class="section">
         <input type="checkbox" id="projects-toggle" checked>
         <label for="projects-toggle">Projects</label>
         <ul>
-        <!-- Hobbies subdirectory -->
-        <li>
-            <input type="checkbox" id="hobbies-toggle">
-            <label for="hobbies-toggle">Artistic</label>
-            <ul>
-            <li><a href="#hydroponics">Brewing</a></li>
-            <li><a href="#automation-hobby">Cookbook</a></li>
-            </ul>
-        </li>
 
-        <!-- Technical subdirectory -->
-        <li>
-            <input type="checkbox" id="technical-toggle">
-            <label for="technical-toggle">Technical</label>
-            <ul>
-            <li><a href="#etl-pipeline">Hydroponics</a></li>
-            <li><a href="#automation">Submarine</a></li>
-            </ul>
-        </li>
+          <!-- Technical Projects -->
+          <li>
+            <div class="section">
+              <input type="checkbox" id="technical-toggle">
+              <label for="technical-toggle">Technical</label>
+              <ul>
+                <li><a href="/templates/technical/hydroponics.html">Hydroponics</a></li>
+                <li><a href="/templates/technical/submarine.html">Submarine</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- Artistic Projects -->
+          <li>
+            <div class="section">
+              <input type="checkbox" id="hobbies-toggle">
+              <label for="hobbies-toggle">Artistic</label>
+              <ul>
+                <li><a href="/templates/hobbies/brewing.html">Brewing</a></li>
+                <li><a href="/templates/hobbies/cookbook.html">Cookbook</a></li>
+              </ul>
+            </div>
+          </li>
         </ul>
-    </div>
+      </div>
 
-    <div class="section">
-      <input type="checkbox" id="blog-toggle" checked>
-      <label for="blog-toggle">Blog / Musings</label>
-      <ul>
-        <li><a href="#automation-tips">Automation Tips</a></li>
-        <li><a href="#data-pipelines">Data Pipeline Insights</a></li>
-      </ul>
-    </div>
+        <div class="section">
+          <input type="checkbox" id="blog-toggle" checked>
+          <label for="blog-toggle">Resources</label>
+          <ul>
+            <li><a href="/templates/resources/cadArchive.html">CAD Files</a></li>
+            <li><a href="/templates/resources/circuitArchive.html">Circuit Diagrams</a></li>
+          </ul>
+        </div>      
 
-    <div class="section">
-      <input type="checkbox" id="about-toggle" checked>
-      <label for="about-toggle">About / Resume</label>
-      <ul>
-        <li><a href="index.html">About Me</a></li>
-        <li>
-          <a href="resumes.html">Resume PDF</a>
-        </li>
-        <li><a href="timeline.html">Timeline</a></li>
-      </ul>
-    </div>
+        <div class="section">
+          <input type="checkbox" id="blog-toggle" checked>
+          <label for="blog-toggle">Blog</label>
+          <ul>
+            <li><a href="#automation-tips">Automation Tips</a></li>
+            <li><a href="#data-pipelines">Data Pipeline Insights</a></li>
+          </ul>
+        </div>
 
-    <div class="section contact">
-      <label>Contact</label>
-      <ul>
-        <li><a href="mailto:youremail@example.com">Email</a></li>
-        <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
-        <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
-      </ul>
-    </div>
-  </aside>
+        <div class="section">
+          <input type="checkbox" id="about-toggle" checked>
+          <label for="about-toggle">About / Resume</label>
+          <ul>
+            <li><a href="/templates/index.html">About Me</a></li>
+            <li>
+              <a href="/templates/resumes.html">Resume PDF</a>
+            </li>
+            <li><a href="/templates/timeline.html">Timeline</a></li>
+          </ul>
+        </div>
+
+        <div class="section contact">
+          <label class="no-arrow">Contact</label>
+          <ul>
+            <li><a href="mailto:youremail@example.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+            <li><a href="https://calendly.com/yourname/coffee-chat" target="_blank">Book a Coffee Chat</a></li>
+          </ul>
+        </div>
+      </aside>
 
   <!-- Main Content -->
   <main id="content">
