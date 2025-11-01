@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jacob | Technical Portfolio</title>
 <link rel="stylesheet" href="../static/styles.css">
-<link href=r"https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
 <div id="container">
@@ -13,7 +12,9 @@
     
   <!-- Sidebar -->
   <aside id="sidebar">
-    <h2 class="sidebar-title">☰ Portfolio</h2>
+    <h2 class="sidebar-title">
+      <a href="index.html">☰ Portfolio</a>
+    </h2>
 
     <div class="section">
       <input type="checkbox" id="projects-toggle" checked>
@@ -38,12 +39,13 @@
       <input type="checkbox" id="about-toggle" checked>
       <label for="about-toggle">About / Resume ▾</label>
       <ul>
-        <li><a href="#about">About Me</a></li>
+        <li><a href="index.html">About Me</a></li>
         <li><a href="#resume">Resume PDF</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
       </ul>
     </div>
 
-    <div class="section">
+    <div class="section contact">
       <label>Contact</label>
       <ul>
         <li><a href="mailto:youremail@example.com">Email</a></li>
@@ -64,12 +66,12 @@
     </section>
 
     <section id="etl-pipeline">
-      <h2>ETL & Data Pipelines</h2>
+      <h2>ETL &amp; Data Pipelines</h2>
       <p>Built end-to-end ETL pipelines consolidating 15+ heterogeneous data sources into a PostgreSQL database. Automated recurring tasks to save 20+ hours/month.</p>
     </section>
 
     <section id="automation">
-      <h2>Lab & Industrial Automation</h2>
+      <h2>Lab &amp; Industrial Automation</h2>
       <p>Integrated IoT devices and PLCs to automate testing processes. Reduced dataset processing from 20 minutes to under 3 minutes per iteration with MATLAB and Python.</p>
     </section>
 
@@ -84,7 +86,7 @@
     </section>
 
     <section id="about">
-      <h2>About Me</h2>
+      <h2>About</h2>
       <p>Experienced in Python, SQL, Linux, embedded systems, and robotics. Skilled at building scalable, maintainable systems and bridging software and hardware workflows.</p>
     </section>
 
@@ -93,6 +95,23 @@
       <p><a href="resume.pdf" target="_blank">Download my resume (PDF)</a></p>
     </section>
   </main>
+
 </div>
 </body>
 </html>
+
+
+<script>
+  // Get current page file name
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Select all sidebar links
+  const links = document.querySelectorAll("#sidebar ul li a");
+
+  links.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>

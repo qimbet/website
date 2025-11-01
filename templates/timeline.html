@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob | Technical Portfolio</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <h2 class="sidebar-title">
+                <a href="index.html">☰ Portfolio</a>
+            </h2>
+
+            <div class="section">
+            <input type="checkbox" id="projects-toggle" checked>
+            <label for="projects-toggle">Projects ▾</label>
+            <ul>
+                <li><a href="#hydroponics">Hydroponics</a></li>
+                <li><a href="#etl-pipeline">ETL Pipeline</a></li>
+                <li><a href="#automation">Automation / IoT</a></li>
+            </ul>
+            </div>
+
+            <div class="section">
+            <input type="checkbox" id="blog-toggle" checked>
+            <label for="blog-toggle">Blog / Musings ▾</label>
+            <ul>
+                <li><a href="#automation-tips">Automation Tips</a></li>
+                <li><a href="#data-pipelines">Data Pipeline Insights</a></li>
+            </ul>
+            </div>
+
+            <div class="section">
+            <input type="checkbox" id="about-toggle" checked>
+            <label for="about-toggle">About / Resume ▾</label>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#resume">Resume PDF</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+            </ul>
+            </div>
+
+            <div class="section contact">
+            <label>Contact</label>
+            <ul>
+                <li><a href="mailto:youremail@example.com">Email</a></li>
+                <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+            </ul>
+            </div>
+        </aside>
+
+
+    <main> 
+        <section id="timeline">
+        <h2>My Journey</h2>
+        <div class="timeline-container">
+
+            <div class="timeline-item left">
+            <div class="content">
+                <h3>2015</h3>
+                <p>Started undergraduate studies in Electrical Engineering.</p>
+            </div>
+            </div>
+
+            <div class="timeline-item right">
+            <div class="content">
+                <h3>2018</h3>
+                <p>First internship in data analysis and embedded systems.</p>
+            </div>
+            </div>
+
+            <div class="timeline-item left">
+            <div class="content">
+                <h3>2020</h3>
+                <p>Graduated and started working on automation projects.</p>
+            </div>
+            </div>
+
+        </div>
+        </section>
+
+    </main>
+    
+    </div>
+</body>
+</html>
+
+
+<script>
+  // Get current page file name
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Select all sidebar links
+  const links = document.querySelectorAll("#sidebar ul li a");
+
+  links.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>

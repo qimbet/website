@@ -10,6 +10,7 @@
   --base0:  #839496;
   --base1:  #93a1a1;
   --base2:  #eee8d5; 
+  --base2-5:#e8e4d8;
   --base3:  #fdf6e3;  
 
   /* Semantic Colors */
@@ -28,6 +29,10 @@
   --sidebar-title: #333333;
   --sidebar-hover: #f0f0f0;
   --sidebar-selected: #00a7f5;
+
+  --shadow: rgba(0,0,0,0.15); 
+
+  --text-scale: 0.9;
 }
 
 /* =========================
@@ -51,6 +56,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-size: calc(1rem * var(--text-scale));
+}
+
+h1 { font-size: calc(2.0rem * var(--text-scale)); }
+h2 { font-size: calc(1.5rem * var(--text-scale)); }
+h3 { font-size: calc(1.25rem * var(--text-scale)); }
+h4 { font-size: calc(1.1rem * var(--text-scale)); }
+h5 { font-size: calc(1rem * var(--text-scale)); }
+h6 { font-size: calc(0.9rem * var(--text-scale)); }
+p, li, a, span { font-size: inherit; }
 
 body, html {
   font-family: 'Fira Code', monospace;
@@ -93,9 +110,22 @@ a:hover {
   margin-bottom: 1rem;
 }
 
+.sidebar-title a { /*links*/
+  text-decoration: none;
+  color: var(--sidebar-title);
+  display: block; /* ensures full click area */
+}
+
+.sidebar-title a:hover {
+  color: var(--sidebar-selected); /* optional hover effect */
+}
+
 /* Collapsible Section */
 .section {
   margin-bottom: 1rem;
+}
+.section.contact ul {
+  max-height: 500px; /* always show contact info */
 }
 
 /* Section Labels */
@@ -147,6 +177,11 @@ a:hover {
   color: var(--base00);
 }
 
+.section ul li a.active {
+  background-color: var(--sidebar-selected);
+  color: white;  /* optional for contrast */
+}
+
 /* Hover effect on full row */
 .section ul li:hover {
   background-color: var(--sidebar-hover);
@@ -156,6 +191,22 @@ a:hover {
 /* =========================
    --- Main Content ---
    ========================= */
+@font-face {
+  font-family: 'Fira Code';
+  src: url('fonts/FiraCode-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('fonts/FiraCode-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 #content {
   flex: 1;
   padding: 2rem;
@@ -165,13 +216,11 @@ a:hover {
 }
 
 #content h1 {
-  font-size: 2rem;
   margin-bottom: 1rem;
   color: var(--base01);
 }
 
 #content h2 {
-  font-size: 1.5rem;
   margin: 1.5rem 0 0.5rem 0;
   color: var(--base00);
 }
@@ -179,4 +228,108 @@ a:hover {
 #content p {
   margin-bottom: 1rem;
   line-height: 1.5;
+}
+
+
+
+
+
+
+
+/* =========================
+   --- Timeline ---
+   ========================= */
+
+/* Timeline base */
+#timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+#timeline h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: calc(1.8rem * var(--text-scale));
+}
+
+/* Central line */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: var(--base01);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+/* Individual items */
+.timeline-item {
+  padding: 1rem 2rem;
+  position: relative;
+  width: 50%;
+}
+.timeline-item .content:hover {
+  background-color: var(--base1); /* slightly darker/lighter than normal */
+  transition: background-color 0.2s ease;
+}
+
+.timeline-item.left {
+  left: 0;
+}
+
+.timeline-item.right {
+  left: 50%;
+}
+
+/* Content box */
+.timeline-item .content {
+  background-color: var(--base2);
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+  transition: 
+    background-color 0.2s ease,  /* smooth color change */
+    transform 0.2s ease,         /* smooth shift */
+    box-shadow 0.2s ease;        /* smooth shadow */
+}
+
+.timeline-item.left .content {
+  margin-right: 30px;
+}
+
+.timeline-item.right .content {
+  margin-left: 30px;
+}
+
+.timeline-item .content:hover {
+  background-color: var(--base2-5);             /* slightly lighter */
+  transform: translateY(-4px) translateX(1.5px); /* shift up and slightly right */
+  box-shadow: 0 8px 16px var(--shadow) /* subtle shadow */
+}
+
+/* Circles on the line */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -10px;
+  background-color: var(--blue);
+  border: 4px solid var(--base3);
+  top: 10px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item.right::before {
+  left: -10px;
 }
