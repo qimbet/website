@@ -9,7 +9,7 @@
 
   <body>
 
-     <div id="sidebar-tab">☰</div>
+     <div id="sidebar-tab">⟩</div>
     <div id='sidebar-overlay'></div>
     <div id="container">
 
@@ -111,17 +111,19 @@
 
 <script>
 const sidebar = document.getElementById('sidebar');
-const tab = document.getElementById('sidebar-tab'); // match the tab ID
+const tab = document.getElementById('sidebar-tab');
 const overlay = document.getElementById('sidebar-overlay');
 
 tab.addEventListener('click', () => {
   sidebar.classList.toggle('open');
   overlay.classList.toggle('active');
+  tab.classList.toggle('open'); // flip the symbol
 });
 
 overlay.addEventListener('click', () => {
   sidebar.classList.remove('open');
   overlay.classList.remove('active');
+  tab.classList.remove('open');
 });
 </script>
 

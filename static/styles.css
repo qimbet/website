@@ -213,7 +213,28 @@ a:hover {
 }
 
 /* Mobile Sidebar */
+
 @media (max-width: 768px) {
+  #sidebar-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 16.666%; /* 1/6 of viewport height */
+    left: 0;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-title);
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1100;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
 
   /* Sidebar slides in/out */
   #sidebar {
@@ -249,23 +270,9 @@ a:hover {
     display: block;
   }
 
-  /* Vertical tab toggle */
-  #sidebar-tab {
-    display: block;
-    position: fixed;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    background-color: var(--sidebar-bg);
-    color: var(--sidebar-title);
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    z-index: 1100;
-    border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+  /* Flip the tab symbol when sidebar is open */
+  #sidebar-tab.open {
+    transform: translateY(-50%) scaleX(-1); /* mirror horizontally */
   }
 }
 
