@@ -277,6 +277,7 @@ a:hover {
   #sidebar-tab span {
     display: inline-block;
     transform: translateY(2px); /* shifts arrow down 2px */
+    transform: translateX(1px);
   }
 
   /* Flip when sidebar open */
