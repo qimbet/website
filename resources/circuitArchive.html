@@ -8,6 +8,8 @@
   </head>
 
   <body>
+<button class='sidebar-toggle'>&#9776;</button>
+<div id='sidebar-overlay'></div>
     <div id="container">
 
       <aside id="sidebar">
@@ -104,7 +106,20 @@
       </main>
 
     </div>
-  </body>
+  <script>
+const sidebar = document.getElementById('sidebar');
+const toggleBtn = document.querySelector('.sidebar-toggle');
+const overlay = document.getElementById('sidebar-overlay');
+toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+});
+overlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+});
+</script>
+</body>
 
 </html>
 
