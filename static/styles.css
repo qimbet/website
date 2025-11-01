@@ -207,26 +207,38 @@ a:hover {
 }
 
 
-/* Mobile Sidebar---------------------- */
+/* Mobile Sidebar ---------------------- */
+#sidebar-toggle {
+  display: none; /* hidden by default on desktop */
+}
+
+/* Hide tab by default on desktop */
+#sidebar-tab {
+  display: none;
+}
+
+/* Mobile Sidebar */
 @media (max-width: 768px) {
+
+  /* Sidebar slides in/out */
   #sidebar {
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 260px; /* keep your current width */
-    transform: translateX(-100%); /* start hidden */
-    z-index: 1000;
+    width: 260px;
+    transform: translateX(-100%);
     transition: transform 0.3s ease;
-    overflow-y: auto; /* keep scrollable */
+    z-index: 1000;
+    overflow-y: auto;
     border-right: 1px solid var(--sidebar-border);
   }
 
   #sidebar.open {
-    transform: translateX(0); /* slide in */
+    transform: translateX(0);
   }
 
-  /* Optional overlay for UX */
+  /* Overlay behind sidebar */
   #sidebar-overlay {
     display: none;
     position: fixed;
@@ -242,15 +254,23 @@ a:hover {
     display: block;
   }
 
-  /* Hamburger toggle */
-  .sidebar-toggle {
+  /* Vertical tab toggle */
+  #sidebar-tab {
     display: block;
     position: fixed;
-    top: 1rem;
-    left: 1rem;
-    font-size: 1.5rem;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-title);
+    padding: 0.5rem 1rem;
     cursor: pointer;
     z-index: 1100;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
   }
 }
 
