@@ -207,11 +207,6 @@ a:hover {
 }
 
 
-/* Mobile Sidebar ---------------------- */
-#sidebar-toggle {
-  display: none; /* hidden by default on desktop */
-}
-
 /* Hide tab by default on desktop */
 #sidebar-tab {
   display: none;

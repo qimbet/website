@@ -12,7 +12,6 @@ $codeAtBodyStart = @"
 $codeAtBodyEnd = @"
 <script>
 const sidebar = document.getElementById('sidebar');
-const toggleBtn = document.querySelector('.sidebar-toggle');
 const overlay = document.getElementById('sidebar-overlay');
 toggleBtn.addEventListener('click', () => {
     sidebar.classList.toggle('open');
