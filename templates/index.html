@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacob | Technical Portfolio</title>
+<link rel="stylesheet" href="../static/styles.css">
+<link href=r"https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="container">
+
+    
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <h2 class="sidebar-title">☰ Portfolio</h2>
+
+    <div class="section">
+      <input type="checkbox" id="projects-toggle" checked>
+      <label for="projects-toggle">Projects ▾</label>
+      <ul>
+        <li><a href="#hydroponics">Hydroponics</a></li>
+        <li><a href="#etl-pipeline">ETL Pipeline</a></li>
+        <li><a href="#automation">Automation / IoT</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <input type="checkbox" id="blog-toggle" checked>
+      <label for="blog-toggle">Blog / Musings ▾</label>
+      <ul>
+        <li><a href="#automation-tips">Automation Tips</a></li>
+        <li><a href="#data-pipelines">Data Pipeline Insights</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <input type="checkbox" id="about-toggle" checked>
+      <label for="about-toggle">About / Resume ▾</label>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#resume">Resume PDF</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <label>Contact</label>
+      <ul>
+        <li><a href="mailto:youremail@example.com">Email</a></li>
+        <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="content">
+    <h1>Welcome!</h1>
+    <p>Hello, I'm Jacob, a data and software-oriented engineer specializing in Python, SQL, Linux, embedded systems, and automation. Browse my projects, blog, and resume using the sidebar.</p>
+
+    <section id="hydroponics">
+      <h2>Hydroponics Automation</h2>
+      <p>Designed a fully automated modular hydroponics system using ESP32, relays, and sensors. Planning integration of robotic arm pollination using computer vision.</p>
+    </section>
+
+    <section id="etl-pipeline">
+      <h2>ETL & Data Pipelines</h2>
+      <p>Built end-to-end ETL pipelines consolidating 15+ heterogeneous data sources into a PostgreSQL database. Automated recurring tasks to save 20+ hours/month.</p>
+    </section>
+
+    <section id="automation">
+      <h2>Lab & Industrial Automation</h2>
+      <p>Integrated IoT devices and PLCs to automate testing processes. Reduced dataset processing from 20 minutes to under 3 minutes per iteration with MATLAB and Python.</p>
+    </section>
+
+    <section id="automation-tips">
+      <h2>Automation Tips (Blog)</h2>
+      <p>Insights on merging software, firmware, and data pipelines for efficient automation.</p>
+    </section>
+
+    <section id="data-pipelines">
+      <h2>Data Pipeline Insights (Blog)</h2>
+      <p>Reflections on ETL design, scaling, and maintainable data engineering.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Experienced in Python, SQL, Linux, embedded systems, and robotics. Skilled at building scalable, maintainable systems and bridging software and hardware workflows.</p>
+    </section>
+
+    <section id="resume">
+      <h2>Resume</h2>
+      <p><a href="resume.pdf" target="_blank">Download my resume (PDF)</a></p>
+    </section>
+  </main>
+</div>
+</body>
+</html>

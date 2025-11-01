@@ -1,0 +1,182 @@
+/* =========================
+   --- Color Variables ---
+   ========================= */
+:root {
+  /* Base Solarized Light Palette */
+  --base03: #002b36;
+  --base02: #073642;
+  --base01: #586e75;
+  --base00: #657b83;
+  --base0:  #839496;
+  --base1:  #93a1a1;
+  --base2:  #eee8d5; 
+  --base3:  #fdf6e3;  
+
+  /* Semantic Colors */
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red:    #dc322f;
+  --magenta:#d33682;
+  --violet: #6c71c4;
+  --blue:   #268bd2;
+  --cyan:   #2aa198;
+  --green:  #859900;
+
+  /* Sidebar Colors */
+  --sidebar-bg: #e8e8e8;
+  --sidebar-border: #aaaaaa;
+  --sidebar-title: #333333;
+  --sidebar-hover: #f0f0f0;
+  --sidebar-selected: #00a7f5;
+}
+
+/* =========================
+   --- Inline Keyword Classes ---
+   Use <span class="color">word</span>
+   ========================= */
+.blue    { color: var(--blue); }
+.green   { color: var(--green); }
+.cyan    { color: var(--cyan); }
+.red     { color: var(--red); }
+.orange  { color: var(--orange); }
+.yellow  { color: var(--yellow); }
+.magenta { color: var(--magenta); }
+.violet  { color: var(--violet); }
+
+/* =========================
+   --- Reset / Base Styles ---
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Fira Code', monospace;
+  height: 100%;
+  background-color: var(--base3);
+  color: var(--base00);
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--cyan);
+}
+
+/* =========================
+   --- Layout ---
+   ========================= */
+#container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================
+   --- Sidebar ---
+   ========================= */
+#sidebar {
+  width: 260px;
+  background-color: var(--sidebar-bg);
+  padding: 1rem;
+  overflow-y: auto;
+  border-right: 1px solid var(--sidebar-border);
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  color: var(--sidebar-title);
+  margin-bottom: 1rem;
+}
+
+/* Collapsible Section */
+.section {
+  margin-bottom: 1rem;
+}
+
+/* Section Labels */
+.section label {
+  display: block;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  color: var(--sidebar-title);
+  transition: background-color 0.05s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+.section label:hover {
+  background-color: var(--sidebar-hover);
+}
+
+/* Section Lists */
+.section ul {
+  list-style: none;
+  margin-left: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.025s ease;
+}
+
+/* Checkbox to toggle collapse */
+.section input[type="checkbox"] {
+  display: none;
+}
+.section input[type="checkbox"]:checked ~ ul {
+  max-height: 500px;
+}
+
+/* List Items */
+.section ul li {
+  display: block;
+  width: 100%;
+  border-radius: 0;
+  transition: background-color 0.05s ease, color 0.1s ease;
+}
+
+/* Full-width links with indent */
+.section ul li a {
+  display: block;
+  width: 100%;
+  padding: 0.3rem 1rem 0.3rem 2rem; /* left padding = indent */
+  text-decoration: none;
+  color: var(--base00);
+}
+
+/* Hover effect on full row */
+.section ul li:hover {
+  background-color: var(--sidebar-hover);
+  color: var(--sidebar-selected);
+}
+
+/* =========================
+   --- Main Content ---
+   ========================= */
+#content {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--base3);
+  color: var(--base00);
+  overflow-y: auto;
+}
+
+#content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--base01);
+}
+
+#content h2 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 0.5rem 0;
+  color: var(--base00);
+}
+
+#content p {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
