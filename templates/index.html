@@ -16,19 +16,41 @@
       <a href="index.html">☰ Portfolio</a>
     </h2>
 
-    <div class="section">
-      <input type="checkbox" id="projects-toggle" checked>
-      <label for="projects-toggle">Projects ▾</label>
-      <ul>
-        <li><a href="#hydroponics">Hydroponics</a></li>
-        <li><a href="#etl-pipeline">ETL Pipeline</a></li>
-        <li><a href="#automation">Automation / IoT</a></li>
-      </ul>
-    </div>
+  <div class="section">
+    <input type="checkbox" id="projects-toggle" checked>
+    <label for="projects-toggle">Projects</label>
+    <ul>
+
+      <!-- Technical subdirectory -->
+      <li>
+        <div class="section">
+          <input type="checkbox" id="technical-toggle">
+          <label for="technical-toggle">Technical</label>
+          <ul>
+            <li><a href="technical/hydroponics.html">Hydroponics</a></li>
+            <li><a href="technical/submarine.html">Submarine</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Hobbies subdirectory -->
+      <li>
+        <div class="section">
+          <input type="checkbox" id="hobbies-toggle">
+          <label for="hobbies-toggle">Artistic</label>
+          <ul>
+            <li><a href="technical/brewing.html">Brewing</a></li>
+            <li><a href="technical/cookbook.html">Cookbook</a></li>
+          </ul>
+        </div>
+      </li>
+
+    </ul>
+  </div>
 
     <div class="section">
       <input type="checkbox" id="blog-toggle" checked>
-      <label for="blog-toggle">Blog / Musings ▾</label>
+      <label for="blog-toggle">Blog / Musings</label>
       <ul>
         <li><a href="#automation-tips">Automation Tips</a></li>
         <li><a href="#data-pipelines">Data Pipeline Insights</a></li>
@@ -37,20 +59,23 @@
 
     <div class="section">
       <input type="checkbox" id="about-toggle" checked>
-      <label for="about-toggle">About / Resume ▾</label>
+      <label for="about-toggle">About / Resume</label>
       <ul>
         <li><a href="index.html">About Me</a></li>
-        <li><a href="#resume">Resume PDF</a></li>
+        <li>
+          <a href="resumes.html">Resume PDF</a>
+        </li>
         <li><a href="timeline.html">Timeline</a></li>
       </ul>
     </div>
 
     <div class="section contact">
-      <label>Contact</label>
+      <label class="no-arrow">Contact</label>
       <ul>
         <li><a href="mailto:youremail@example.com">Email</a></li>
         <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
         <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+        <li><a href="https://calendly.com/yourname/coffee-chat" target="_blank">Book a Coffee Chat</a></li>
       </ul>
     </div>
   </aside>
@@ -58,7 +83,7 @@
   <!-- Main Content -->
   <main id="content">
     <h1>Welcome!</h1>
-    <p>Hello, I'm Jacob, a data and software-oriented engineer specializing in Python, SQL, Linux, embedded systems, and automation. Browse my projects, blog, and resume using the sidebar.</p>
+    <p>Hello, I'm Jacob, a data and software-oriented engineer specializing in Python, SQL, Linux, embedded systems, and automation. Browse my Technical Projects, blog, and resume using the sidebar.</p>
 
     <section id="hydroponics">
       <h2>Hydroponics Automation</h2>

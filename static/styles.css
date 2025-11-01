@@ -33,6 +33,7 @@
   --shadow: rgba(0,0,0,0.15); 
 
   --text-scale: 0.9;
+  --sidebarElementPadding:1.2rem;
 }
 
 /* =========================
@@ -61,7 +62,7 @@ body {
   font-size: calc(1rem * var(--text-scale));
 }
 
-h1 { font-size: calc(2.0rem * var(--text-scale)); }
+h1 { font-size: calc(2.0rem * var(--text-scale)); } /*if resizing text*/
 h2 { font-size: calc(1.5rem * var(--text-scale)); }
 h3 { font-size: calc(1.25rem * var(--text-scale)); }
 h4 { font-size: calc(1.1rem * var(--text-scale)); }
@@ -110,29 +111,30 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-.sidebar-title a { /*links*/
+.sidebar-title a { /*links to homepage*/
   text-decoration: none;
   color: var(--sidebar-title);
-  display: block; /* ensures full click area */
+  display: block; 
 }
-
 .sidebar-title a:hover {
   color: var(--sidebar-selected); /* optional hover effect */
 }
 
-/* Collapsible Section */
-.section {
-  margin-bottom: 1rem;
-}
-.section.contact ul {
-  max-height: 500px; /* always show contact info */
+#sidebar ul li a.active { /*selected sidebar element*/
+  color: white;  
+  background-color: var(--sidebar-selected);
+  padding: 0.25em 0.5em;
+  display: inline-block; 
 }
 
-/* Section Labels */
+/* Collapsible Section */
+.section {
+  margin-bottom: 0.4rem;
+}
 .section label {
   display: block;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 1rem;
   font-weight: bold;
   color: var(--sidebar-title);
   transition: background-color 0.05s ease;
@@ -142,14 +144,38 @@ a:hover {
 .section label:hover {
   background-color: var(--sidebar-hover);
 }
+.section.contact ul {
+  max-height: 500px; /* always show contact info */
+}
 
-/* Section Lists */
 .section ul {
-  list-style: none;
+  list-style: none; /*No bullets*/
   margin-left: 0;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.025s ease;
+  padding-left: var(--sidebarElementPadding);
+}
+
+
+.section ul li a { /*Target only link elements within the list*/
+  display: block;
+  width: 100%;
+  padding: 0.35rem 1rem;
+  transition: background-color 0.05s ease;
+}
+.section ul li a:hover {
+  background-color: var(--sidebar-hover);
+}
+
+.section ul li a,
+.section ul li > label {
+  display: block;
+  width: 100%;
+  padding: 0.3rem 1rem 0.3rem var(--sidebarElementPadding); 
+  text-decoration: none;
+  color: inherit; /* inherit parent color */
+  transition: background-color 0.05s ease, color 0.1s ease;
 }
 
 /* Checkbox to toggle collapse */
@@ -159,33 +185,25 @@ a:hover {
 .section input[type="checkbox"]:checked ~ ul {
   max-height: 500px;
 }
-
-/* List Items */
-.section ul li {
-  display: block;
-  width: 100%;
-  border-radius: 0;
-  transition: background-color 0.05s ease, color 0.1s ease;
+.section label::before {
+  content: '';
+  display: inline-block;
+  width: 0.5em;        /* horizontal length */
+  height: 0.5em;       /* vertical length */
+  border-bottom: 2px solid currentColor; /* horizontal line */
+  border-right: 2px solid currentColor;  /* vertical line */
+  margin-right: 0.45rem;
+  margin-bottom: 0.1rem;
+  transform: rotate(-45deg); /* no rotation yet */
+  box-sizing: border-box;
 }
-
-/* Full-width links with indent */
-.section ul li a {
-  display: block;
-  width: 100%;
-  padding: 0.3rem 1rem 0.3rem 2rem; /* left padding = indent */
-  text-decoration: none;
-  color: var(--base00);
+/* Rotate arrow when the checkbox is checked */
+.section input[type="checkbox"]:checked + label::before {
+  transform: rotate(45deg);
 }
-
-.section ul li a.active {
-  background-color: var(--sidebar-selected);
-  color: white;  /* optional for contrast */
-}
-
-/* Hover effect on full row */
-.section ul li:hover {
-  background-color: var(--sidebar-hover);
-  color: var(--sidebar-selected);
+/* Hide arrow on non-collapsible sections */
+.section label.no-arrow::before { 
+  content: none;
 }
 
 /* =========================
@@ -231,11 +249,6 @@ a:hover {
 }
 
 
-
-
-
-
-
 /* =========================
    --- Timeline ---
    ========================= */
@@ -278,14 +291,13 @@ a:hover {
   width: 50%;
 }
 .timeline-item .content:hover {
-  background-color: var(--base1); /* slightly darker/lighter than normal */
+  background-color: var(--base1); 
   transition: background-color 0.2s ease;
 }
 
 .timeline-item.left {
   left: 0;
 }
-
 .timeline-item.right {
   left: 50%;
 }
@@ -297,27 +309,24 @@ a:hover {
   border-radius: 8px;
   position: relative;
   transition: 
-    background-color 0.2s ease,  /* smooth color change */
-    transform 0.2s ease,         /* smooth shift */
-    box-shadow 0.2s ease;        /* smooth shadow */
+    background-color 0.2s ease,  
+    transform 0.2s ease,        
+    box-shadow 0.2s ease;        
 }
-
 .timeline-item.left .content {
   margin-right: 30px;
 }
-
 .timeline-item.right .content {
   margin-left: 30px;
 }
-
 .timeline-item .content:hover {
-  background-color: var(--base2-5);             /* slightly lighter */
-  transform: translateY(-4px) translateX(1.5px); /* shift up and slightly right */
-  box-shadow: 0 8px 16px var(--shadow) /* subtle shadow */
+  background-color: var(--base2-5);             
+  transform: translateY(-4px) translateX(1.5px); 
+  box-shadow: 0 8px 16px var(--shadow)
 }
 
-/* Circles on the line */
-.timeline-item::before {
+
+.timeline-item::before { /*timeline marker*/
   content: '';
   position: absolute;
   width: 20px;
@@ -329,7 +338,6 @@ a:hover {
   border-radius: 50%;
   z-index: 1;
 }
-
 .timeline-item.right::before {
   left: -10px;
 }

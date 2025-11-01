@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacob | Technical Portfolio</title>
+<link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+<div id="container">
+
+    
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <h2 class="sidebar-title">
+      <a href="index.html">☰ Portfolio</a>
+    </h2>
+
+    <div class="section">
+        <input type="checkbox" id="projects-toggle" checked>
+        <label for="projects-toggle">Projects</label>
+        <ul>
+        <!-- Hobbies subdirectory -->
+        <li>
+            <input type="checkbox" id="hobbies-toggle">
+            <label for="hobbies-toggle">Artistic</label>
+            <ul>
+            <li><a href="#hydroponics">Brewing</a></li>
+            <li><a href="#automation-hobby">Cookbook</a></li>
+            </ul>
+        </li>
+
+        <!-- Technical subdirectory -->
+        <li>
+            <input type="checkbox" id="technical-toggle">
+            <label for="technical-toggle">Technical</label>
+            <ul>
+            <li><a href="#etl-pipeline">Hydroponics</a></li>
+            <li><a href="#automation">Submarine</a></li>
+            </ul>
+        </li>
+        </ul>
+    </div>
+
+    <div class="section">
+      <input type="checkbox" id="blog-toggle" checked>
+      <label for="blog-toggle">Blog / Musings</label>
+      <ul>
+        <li><a href="#automation-tips">Automation Tips</a></li>
+        <li><a href="#data-pipelines">Data Pipeline Insights</a></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <input type="checkbox" id="about-toggle" checked>
+      <label for="about-toggle">About / Resume</label>
+      <ul>
+        <li><a href="index.html">About Me</a></li>
+        <li>
+          <a href="resumes.html">Resume PDF</a>
+        </li>
+        <li><a href="timeline.html">Timeline</a></li>
+      </ul>
+    </div>
+
+    <div class="section contact">
+      <label>Contact</label>
+      <ul>
+        <li><a href="mailto:youremail@example.com">Email</a></li>
+        <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="content">
+    <h1>Welcome!</h1>
+    <p>Hello, I'm Jacob, a data and software-oriented engineer specializing in Python, SQL, Linux, embedded systems, and automation. Browse my Technical Projects, blog, and resume using the sidebar.</p>
+
+
+  </main>
+
+</div>
+</body>
+</html>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body);"></script>
+
+<script> // Highlights active site page in sidebar
+  const currentPage = window.location.pathname.split("/").pop();
+
+  // Select all sidebar links
+  const links = document.querySelectorAll("#sidebar ul li a");
+
+  links.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<script>  //Downloads resume.pdf on visit
+  // Create a temporary link and click it programmatically
+  const link = document.createElement('a');
+  link.href = '../accessories/resumes/resume_JM.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+</script>
