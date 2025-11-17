@@ -9,86 +9,77 @@
 
   <body>
   
+    <div id='sidebar-overlay'></div>
+    <div id="container">
 
-      <aside id="sidebar">
-        <h2 class="sidebar-title">
-          <a href="/index.html">☰ Portfolio</a>
-        </h2>
+    <aside id="sidebar">
+      <h2 class="sidebar-title">
+        <a href="/index.html">☰ Portfolio</a>
+      </h2>
+
+    <div class="section">
+      <input type="checkbox" id="projects-toggle" checked>
+      <label for="projects-toggle">Projects</label>
+      <ul>
+
+        <!-- Technical Projects -->
+        <li>
+          <div class="section">
+            <input type="checkbox" id="technical-toggle">
+            <label for="technical-toggle">Technical</label>
+            <ul>
+              <li><a href="/technical/hydroponics.html">Hydroponics</a></li>
+              <li><a href="/technical/submarine.html">Submarine</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Artistic Projects -->
+        <li>
+          <div class="section">
+            <input type="checkbox" id="hobbies-toggle">
+            <label for="hobbies-toggle">Artistic</label>
+            <ul>
+              <li><a href="/hobbies/brewing.html">Brewing</a></li>
+              <li><a href="/hobbies/cookbook.html">Cookbook</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
 
       <div class="section">
-        <input type="checkbox" id="projects-toggle" checked>
-        <label for="projects-toggle">Projects</label>
+        <input type="checkbox" id="blog-toggle" checked>
+        <label for="blog-toggle">Resources</label>
         <ul>
+          <li><a href="/resources/cadArchive.html">CAD Files</a></li>
+          <li><a href="/resources/circuitArchive.html">Circuit Diagrams</a></li>
+        </ul>
+      </div>      
 
-          <!-- Technical Projects -->
+      <div class="section">
+        <input type="checkbox" id="about-toggle" checked>
+        <label for="about-toggle">About / Resume</label>
+        <ul>
+          <li><a href="/index.html">About Me</a></li>
           <li>
-            <div class="section">
-              <input type="checkbox" id="technical-toggle">
-              <label for="technical-toggle">Technical</label>
-              <ul>
-                <li><a href="/technical/hydroponics.html">Hydroponics</a></li>
-                <li><a href="/technical/submarine.html">Submarine</a></li>
-              </ul>
-            </div>
+            <a href="/resumes.html">Resume PDF</a>
           </li>
-
-          <!-- Artistic Projects -->
-          <li>
-            <div class="section">
-              <input type="checkbox" id="hobbies-toggle">
-              <label for="hobbies-toggle">Artistic</label>
-              <ul>
-                <li><a href="/hobbies/brewing.html">Brewing</a></li>
-                <li><a href="/hobbies/cookbook.html">Cookbook</a></li>
-              </ul>
-            </div>
-          </li>
+          <li><a href="/timeline.html">Timeline</a></li>
         </ul>
       </div>
 
-        <div class="section">
-          <input type="checkbox" id="blog-toggle" checked>
-          <label for="blog-toggle">Resources</label>
-          <ul>
-            <li><a href="resources/cadArchive.html">CAD Files</a></li>
-            <li><a href="resources/circuitArchive.html">Circuit Diagrams</a></li>
-          </ul>
-        </div>      
-
-        <div class="section">
-          <input type="checkbox" id="blog-toggle" checked>
-          <label for="blog-toggle">Blog</label>
-          <ul>
-            <li><a href="#automation-tips">Automation Tips</a></li>
-            <li><a href="#data-pipelines">Data Pipeline Insights</a></li>
-          </ul>
-        </div>
-
-        <div class="section">
-          <input type="checkbox" id="about-toggle" checked>
-          <label for="about-toggle">About / Resume</label>
-          <ul>
-            <li><a href="/index.html">About Me</a></li>
-            <li>
-              <a href="/resumes.html">Resume PDF</a>
-            </li>
-            <li><a href="/timeline.html">Timeline</a></li>
-          </ul>
-        </div>
-
-        <div class="section contact">
-          <label class="no-arrow">Contact</label>
-          <ul>
-            <li><a href="mailto:youremail@example.com">Email</a></li>
-            <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
-            <li><a href="https://calendly.com/yourname/coffee-chat" target="_blank">Book a Coffee Chat</a></li>
-          </ul>
-        </div>
-        </aside>
+      <div class="section contact">
+        <label class="no-arrow">Contact</label>
+        <ul>
+          <li><a href="mailto:jacob@qimbet.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/qimbet/" target="_blank">LinkedIn</a></li>
+          <li><a href="https://github.com/qimbet" target="_blank">GitHub</a></li>
+          <li><a href="https://calendly.com/jacob-c-mattie/30min" target="_blank">Book a Coffee Chat</a></li>
+        </ul>
+      </div>
+    </aside>
     <div id="sidebar-tab"><span>⟩</span></div>
-    <div id='sidebar-overlay'></div>
-    <div id="container">
 
     <main> 
         <section id="timeline">
@@ -122,6 +113,8 @@
     </main>
     
     </div>
+
+
 <script>
 const sidebar = document.getElementById('sidebar');
 const overlay = document.getElementById('sidebar-overlay');
@@ -134,8 +127,21 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('active');
 });
 </script>
-</body>
-</html>
+
+<script>
+document.querySelectorAll("#sidebar ul li a.active").forEach(activeLink => {
+  // Find the nearest parent section
+  const parentSection = activeLink.closest(".section");
+  if (!parentSection) return;
+
+  // Find the checkbox controlling this section
+  const checkbox = parentSection.querySelector('input[type="checkbox"]');
+  if (checkbox) {
+    checkbox.checked = true;   // keep section open
+    checkbox.disabled = true;  // optionally prevent collapsing
+  }
+});
+</script>
 
 
 <script>
@@ -146,9 +152,16 @@ overlay.addEventListener('click', () => {
   const links = document.querySelectorAll("#sidebar ul li a");
 
   links.forEach(link => {
-    const href = link.getAttribute("href");
+    const href = link.getAttribute("href").split("/").pop();
     if (href === currentPage) {
       link.classList.add("active");
     }
   });
 </script>
+
+
+
+</body>
+</html>
+
+

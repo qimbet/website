@@ -9,6 +9,8 @@
 
   <body>
 
+    <div id='sidebar-overlay'></div>
+    <div id="container">
       <aside id="sidebar">
         <h2 class="sidebar-title">
           <a href="/index.html">☰ Portfolio</a>
@@ -27,6 +29,7 @@
               <ul>
                 <li><a href="/technical/hydroponics.html">Hydroponics</a></li>
                 <li><a href="/technical/submarine.html">Submarine</a></li>
+                <li><a href="/technical/householdAutomation.html">Household Automation</a></li>
               </ul>
             </div>
           </li>
@@ -55,19 +58,11 @@
         </div>      
 
         <div class="section">
-          <input type="checkbox" id="blog-toggle" checked>
-          <label for="blog-toggle">Blog</label>
-          <ul>
-            <li><a href="#automation-tips">Automation Tips</a></li> <!-- # indicates a 'scroll to id' link -->
-            <li><a href="#data-pipelines">Data Pipeline Insights</a></li>
-          </ul>
-        </div>
-
-        <div class="section">
           <input type="checkbox" id="about-toggle" checked>
           <label for="about-toggle">About / Resume</label>
           <ul>
             <li><a href="/index.html">About Me</a></li>
+            <li><a href="/blog/blog.html">Blog</a></li>
             <li>
               <a href="/resumes.html">Resume PDF</a>
             </li>
@@ -78,19 +73,18 @@
         <div class="section contact">
           <label class="no-arrow">Contact</label>
           <ul>
-            <li><a href="mailto:youremail@example.com">Email</a></li>
-            <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
-            <li><a href="https://calendly.com/yourname/coffee-chat" target="_blank">Book a Coffee Chat</a></li>
+            <li><a href="mailto:jacob@qimbet.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/qimbet/" target="_blank">LinkedIn</a></li>
+            <li><a href="https://github.com/qimbet" target="_blank">GitHub</a></li>
+            <li><a href="https://calendly.com/jacob-c-mattie/30min" target="_blank">Book a Coffee Chat</a></li>
           </ul>
         </div>
-        </aside>
-    <div id="sidebar-tab"><span>⟩</span></div>
-    <div id='sidebar-overlay'></div>
-    <div id="container">
+      </aside>
+      <div id="sidebar-tab"><span>⟩</span></div>
 
       <!-- Main Content -->
       <main id="content">
+
 
 
         <h1>Welcome!</h1>
@@ -126,13 +120,20 @@ overlay.addEventListener('click', () => {
 });
 </script>
 
+<script>
+document.querySelectorAll("#sidebar ul li a.active").forEach(activeLink => {
+  // Find the nearest parent section
+  const parentSection = activeLink.closest(".section");
+  if (!parentSection) return;
 
-</body>
-
-
-  
-</html>
-
+  // Find the checkbox controlling this section
+  const checkbox = parentSection.querySelector('input[type="checkbox"]');
+  if (checkbox) {
+    checkbox.checked = true;   // keep section open
+    checkbox.disabled = true;  // optionally prevent collapsing
+  }
+});
+</script>
 
 <script>
   // Get current page file name
@@ -142,10 +143,17 @@ overlay.addEventListener('click', () => {
   const links = document.querySelectorAll("#sidebar ul li a");
 
   links.forEach(link => {
-    const href = link.getAttribute("href");
+    const href = link.getAttribute("href").split("/").pop();
     if (href === currentPage) {
       link.classList.add("active");
     }
   });
 </script>
+
+</body>
+
+
+</html>
+
+
 

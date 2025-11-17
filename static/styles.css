@@ -29,6 +29,7 @@
   --sidebar-title: #333333;
   --sidebar-hover: #f0f0f0;
   --sidebar-selected: #00a7f5;
+  --sidebar-selected-hover: #008fcc; 
 
   --shadow: rgba(0,0,0,0.15); 
 
@@ -183,7 +184,8 @@ a:hover {
 .section input[type="checkbox"] {
   display: none;
 }
-.section input[type="checkbox"]:checked ~ ul {
+#sidebar input[type="checkbox"]:checked ~ ul,
+#sidebar ul li a.active {
   max-height: 500px;
 }
 .section label::before {
@@ -207,15 +209,32 @@ a:hover {
   content: none;
 }
 
-
 /* Hide tab by default on desktop */
 #sidebar-tab {
   transition: left 0.3s ease-in-out, background-color 0.3s ease;
   display: none;
 }
 
-/* Mobile Sidebar */
+#container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
 
+#sidebar {
+  position: relative;
+  flex-shrink: 0;
+  width: 260px;
+  height: 100vh; /* optional, keeps sidebar full height */
+}
+
+#content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Mobile Sidebar */
 @media (max-width: 768px) {
   #sidebar {
     position: fixed;
@@ -256,7 +275,7 @@ a:hover {
     align-items: center;
     position: fixed;
     line-height: 1;
-    top: 16.666%; /* 1/6 of viewport height */
+    top: 16.666%; 
     left: 0px; /* left edge of screen */
     width: 2rem;
     height: 4rem; /* doubled height */
@@ -265,14 +284,14 @@ a:hover {
     font-weight: bold;
     font-size: 1.5rem;
     cursor: pointer;
-    z-index: 1100;
+    z-index: 2500;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
     transition: left 0.3s ease-in-out, background-color 0.3s ease
   }
-  #sidebar.open + #sidebar-tab {
-    left: var(--sidebar-width); /* moves with sidebar edge */
+  #sidebar.open ~ #sidebar-tab {
+    left: var(--sidebar-width);
   }
 
   /* Flip when sidebar open */
@@ -286,7 +305,6 @@ a:hover {
   }
 
 }
-
 
 /* =========================
    --- Main Content ---
@@ -377,6 +395,12 @@ a:hover {
   transition: background-color 0.2s ease;
 }
 
+.timeline-container,
+.timeline-item,
+.timeline-item::before {
+  z-index: 0; 
+}
+
 .timeline-item.left {
   left: 0;
 }
@@ -422,4 +446,49 @@ a:hover {
 }
 .timeline-item.right::before {
   left: -10px;
+}
+
+
+
+/* =========================
+   --- Resume ---
+   ========================= */
+.pdf-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;  /* expand to most of available space */
+  margin: auto;
+  height: 85vh;        /* take most of viewport height */
+  border: 1px solid var(--base0);
+  overflow: hidden;   
+  border-radius: 8px;
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 100%; 
+  border: none;
+}
+
+.pdf-download {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.pdf-download button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--sidebar-selected); 
+  color: white;
+  transition: background-color 0.2s ease;
+}
+
+.pdf-download button:hover {
+  background-color: var(--sidebar-selected-hover);
 }
