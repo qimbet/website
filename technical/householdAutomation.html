@@ -121,22 +121,6 @@ overlay.addEventListener('click', () => {
 </script>
 
 <script>
-document.querySelectorAll("#sidebar ul li a.active").forEach(activeLink => {
-  // Find the nearest parent section
-  const parentSection = activeLink.closest(".section");
-  if (!parentSection) return;
-
-  // Find the checkbox controlling this section
-  const checkbox = parentSection.querySelector('input[type="checkbox"]');
-  if (checkbox) {
-    checkbox.checked = true;   // keep section open
-    checkbox.disabled = true;  // optionally prevent collapsing
-  }
-});
-</script>
-
-
-<script>
   // Get current page file name
   const currentPage = window.location.pathname.split("/").pop();
 
@@ -149,6 +133,31 @@ document.querySelectorAll("#sidebar ul li a.active").forEach(activeLink => {
       link.classList.add("active");
     }
   });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // find all active links (after your active-link logic has run)
+  document.querySelectorAll("#sidebar a.active").forEach(activeLink => {
+
+    // walk up the DOM and expand every parent .section
+    let section = activeLink.closest(".section");
+
+    while (section) {
+      const checkbox = section.querySelector('input[type="checkbox"]');
+      if (checkbox) {
+        checkbox.checked = true;
+        checkbox.disabled = true;   // lock it open
+      }
+
+      // move to the next ancestor .section
+      section = section.parentElement?.closest(".section");
+    }
+
+  });
+
+});
 </script>
 
 </body>

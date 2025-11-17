@@ -492,3 +492,63 @@ a:hover {
 .pdf-download button:hover {
   background-color: var(--sidebar-selected-hover);
 }
+
+
+/* =========================
+   --- Files table & display ---
+   ========================= */
+#filesList details {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--sidebar-border);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px var(--shadow);
+  background: var(--base3);
+}
+
+#filesList summary {
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-title);
+  border-bottom: 1px solid var(--sidebar-border);
+  list-style: none; /* remove default arrow */
+}
+
+#filesList summary:hover {
+  background-color: var(--sidebar-hover);
+}
+
+/* Table styling */
+.files-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.files-table th,
+.files-table td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--sidebar-border);
+}
+
+.files-table img {
+  width: 100px;
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--sidebar-border);
+}
+
+.files-table a {
+  padding: 0.25rem 0.5rem;
+  background: var(--sidebar-selected);
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.files-table a:hover {
+  background: var(--sidebar-selected-hover);
+}

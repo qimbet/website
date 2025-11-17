@@ -87,19 +87,105 @@
 
 
 
-        <h1>Welcome!</h1>
-        <p>Hello, I'm Jacob, a data and software-oriented engineer specializing in Python, SQL, Linux, embedded systems, and automation. Browse my Technical Projects, blog, and resume using the sidebar.</p>
-
-        <section id="hydroponics">
-          <h2>Hydroponics Automation</h2>
-          <p>Designed a fully automated modular hydroponics system using ESP32, relays, and sensors. Planning integration of robotic arm pollination using computer vision.</p>
-        </section>
+        <h2>CAD Files</h2>
 
 
+
+
+
+        <div id="filesList">
+
+          <!-- Hydroponics Section -->
+          <details open>
+            <summary>Hydroponics</summary>
+
+            <div class="files-description">
+              <p>Fully automated gardening!! Yeah baby we in it!!! </p>
+            </div>
+            
+            <table class="files-table">
+              <thead>
+                <tr>
+                  <th>Preview</th>
+                  <th>Description</th>
+                  <th>FCSTD</th>
+                  <th>3MF</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="/images/hydroponics/module1.png" alt="Module 1 preview"></td>
+                  <td>Module 1 - Automated nutrient distributor</td>
+                  <td><a href="/files/hydroponics/module1.FCSTD" download>Download</a></td>
+                  <td><a href="/files/hydroponics/module1.3mf" download>Download</a></td>
+                </tr>
+                <tr>
+                  <td><img src="/images/hydroponics/module2.png" alt="Module 2 preview"></td>
+                  <td>Module 2 - Sensor array for pH & EC</td>
+                  <td><a href="/files/hydroponics/module2.FCSTD" download>Download</a></td>
+                  <td><a href="/files/hydroponics/module2.3mf" download>Download</a></td>
+                </tr>
+              </tbody>
+            </table>
+                          
+              <div class="files-addendum">
+                <p>Additional resources:</p>
+                <ul>
+                  <li><a href="/files/submarine/manual.pdf" target="_blank">Assembly Manual</a></li>
+                  <li><a href="/files/submarine/parts_list.xlsx" target="_blank">Parts List</a></li>
+                </ul>
+              </div>
+          </details>
+
+          <!-- Submarine Section -->
+          <details>
+            <summary>Submarine</summary>
+            
+              <div class="files-description">
+                <p>The Submarine project focuses on designing a modular, pressure-tested hull suitable for small-scale underwater exploration. All components are designed to be 3D printed or CNC-machined, with attention to watertight seals and modular assembly.</p>
+                <p>Additional modules include propulsion systems, sensor arrays, and ballast tanks that integrate with the hull.</p>
+              </div>
+            
+            <table class="files-table">
+              <thead>
+                <tr>
+                  <th>Preview</th>
+                  <th>Description</th>
+                  <th>FCSTD</th>
+                  <th>3MF</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="/images/submarine/hull.png" alt="Submarine Hull"></td>
+                  <td>Hull - Pressure-tested modular hull</td>
+                  <td><a href="/files/submarine/hull.FCSTD" download>Download .FCSTD</a></td>
+                  <td><a href="/files/submarine/hull.3mf" download>Download .3mf</a></td>
+                </tr>
+                <!-- Add more files as needed -->
+              </tbody>
+            </table>
+              <div class="files-addendum">
+                <p>Additional resources:</p>
+                <ul>
+                  <li><a href="/files/submarine/manual.pdf" target="_blank">Assembly Manual</a></li>
+                  <li><a href="/files/submarine/parts_list.xlsx" target="_blank">Parts List</a></li>
+                </ul>
+              </div>
+          </details>
+
+
+
+
+        </div>
 
       </main>
-
     </div>
+
+
+
+
+
 <script>
 const sidebar = document.getElementById('sidebar');
 const tab = document.getElementById('sidebar-tab');
@@ -119,21 +205,6 @@ overlay.addEventListener('click', () => {
 </script>
 
 <script>
-document.querySelectorAll("#sidebar ul li a.active").forEach(activeLink => {
-  // Find the nearest parent section
-  const parentSection = activeLink.closest(".section");
-  if (!parentSection) return;
-
-  // Find the checkbox controlling this section
-  const checkbox = parentSection.querySelector('input[type="checkbox"]');
-  if (checkbox) {
-    checkbox.checked = true;   // keep section open
-    checkbox.disabled = true;  // optionally prevent collapsing
-  }
-});
-</script>
-
-<script>
   // Get current page file name
   const currentPage = window.location.pathname.split("/").pop();
 
@@ -146,6 +217,31 @@ document.querySelectorAll("#sidebar ul li a.active").forEach(activeLink => {
       link.classList.add("active");
     }
   });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // find all active links (after your active-link logic has run)
+  document.querySelectorAll("#sidebar a.active").forEach(activeLink => {
+
+    // walk up the DOM and expand every parent .section
+    let section = activeLink.closest(".section");
+
+    while (section) {
+      const checkbox = section.querySelector('input[type="checkbox"]');
+      if (checkbox) {
+        checkbox.checked = true;
+        checkbox.disabled = true;   // lock it open
+      }
+
+      // move to the next ancestor .section
+      section = section.parentElement?.closest(".section");
+    }
+
+  });
+
+});
 </script>
 
 </body>
