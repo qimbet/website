@@ -101,7 +101,8 @@
     <script>
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('sidebar-overlay');
-    toggleBtn.addEventListener('click', () => {
+    const tab = document.getElementById('sidebar-tab');
+    tab.addEventListener('click', () => {
         sidebar.classList.toggle('open');
         overlay.classList.toggle('active');
     });

@@ -13,7 +13,7 @@ $codeAtBodyEnd = @"
 <script>
 const sidebar = document.getElementById('sidebar');
 const overlay = document.getElementById('sidebar-overlay');
-toggleBtn.addEventListener('click', () => {
+sidebar-tab.addEventListener('click', () => {
     sidebar.classList.toggle('open');
     overlay.classList.toggle('active');
 });
