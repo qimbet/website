@@ -112,45 +112,45 @@
     });
     </script>
 
-<script>
-  // Get current page file name
-  const currentPage = window.location.pathname.split("/").pop();
+    <script>
+      // Get current page file name
+      const currentPage = window.location.pathname.split("/").pop();
 
-  // Select all sidebar links
-  const links = document.querySelectorAll("#sidebar ul li a");
+      // Select all sidebar links
+      const links = document.querySelectorAll("#sidebar ul li a");
 
-  links.forEach(link => {
-    const href = link.getAttribute("href").split("/").pop();
-    if (href === currentPage) {
-      link.classList.add("active");
-    }
-  });
-</script>
+      links.forEach(link => {
+        const href = link.getAttribute("href").split("/").pop();
+        if (href === currentPage) {
+          link.classList.add("active");
+        }
+      });
+    </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-  // find all active links (after your active-link logic has run)
-  document.querySelectorAll("#sidebar a.active").forEach(activeLink => {
+      // find all active links (after your active-link logic has run)
+      document.querySelectorAll("#sidebar a.active").forEach(activeLink => {
 
-    // walk up the DOM and expand every parent .section
-    let section = activeLink.closest(".section");
+        // walk up the DOM and expand every parent .section
+        let section = activeLink.closest(".section");
 
-    while (section) {
-      const checkbox = section.querySelector('input[type="checkbox"]');
-      if (checkbox) {
-        checkbox.checked = true;
-        checkbox.disabled = true;   // lock it open
-      }
+        while (section) {
+          const checkbox = section.querySelector('input[type="checkbox"]');
+          if (checkbox) {
+            checkbox.checked = true;
+            checkbox.disabled = true;   // lock it open
+          }
 
-      // move to the next ancestor .section
-      section = section.parentElement?.closest(".section");
-    }
+          // move to the next ancestor .section
+          section = section.parentElement?.closest(".section");
+        }
 
-  });
+      });
 
-});
-</script>
+    });
+    </script>
 
 
   </body>
