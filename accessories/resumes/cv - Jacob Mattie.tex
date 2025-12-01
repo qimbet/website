@@ -1,0 +1,549 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{tikz}
+
+\pagestyle{plain}
+
+\newcommand{\certification}[3]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #3 \\
+			\textit{#2}
+		\end{tabular*}
+	}
+}
+
+\newcommand{\education}[4]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+			\textit{#3}
+			\vspace{1.5mm}
+		\end{tabular*}
+		\vspace{-2mm}\hspace*{4mm}\textbf{Key Coursework:}
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}   % Shrink space between items
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#4
+		\end{itemize}
+	}
+}
+
+\newcommand{\leadership}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		
+		\noindent\textit{#3} \hfill #4 \\
+		\vspace{-5mm}
+		\begin{itemize}
+			
+			\setlength{\itemsep}{-1mm}   % Shrinks space between items
+			\setlength{\topsep}{-4mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+\newcommand{\project}[4]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+			\textit{#3}
+		\end{tabular*}
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}   % Shrink space between items
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#4
+		\end{itemize}
+	}
+}
+
+\newcommand{\work}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		\textit{#3} \hfill #4 \\
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+\newcommand{\workbrief}[4]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		\textit{#3} \hfill #4 \\
+		\vspace{1.8mm}
+	}
+}
+
+\newcommand{\lang}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Basic};
+		\node[above] at (7,0.08) {\scriptsize Fluent};
+	\end{tikzpicture}
+}
+
+\newcommand{\skillbar}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Novice};
+		\node[above] at (7,0.08) {\scriptsize Expert};
+	\end{tikzpicture}
+}
+
+
+\begin{document}
+	\begin{center}
+		{\Huge \bfseries Jacob Mattie} \\[0.5em]
+		\textit{Curriculum Vitae}\\[0.5em]
+		Vancouver \\
+		\texttt{778-710-7554} \\
+		\texttt{j\_mattie@live.ca} \\
+		\href{https://github.com/qimbet}{https://github.com/qimbet}
+	\end{center}
+	
+	\vspace{1em}
+	
+	\section*{Summary}
+	Mathematician with vocational expertise in mechanical engineering and software development. Automation-focused skillset. Passionate about communication.\\[0.5em]
+	My academic goals are to pursue a Master's Degree and a PhD in Molecular Physics.
+	
+	\section*{Skills}
+	\begin{itemize}[left=0pt, label={}]
+				
+		\item \textbf{Programming Languages}:
+		\begin{adjustwidth}{5mm}{}
+			\skillbar{Python}{4.56}\\ 
+			\skillbar{SQL}{4.4}\\ 
+			\skillbar{C++}{2.48}\\
+		\end{adjustwidth}
+		
+		\item \textbf{Fabrication}:
+		\begin{adjustwidth}{5mm}{}
+			\skillbar{Microcontrollers, Electronic Design, \& Assembly}{4.5}\\ 
+			\skillbar{120+ VAC Electronics}{3.12}
+			\skillbar{Plumbing, Pumps, \& Valves}{3.8}
+			\skillbar{Sensors, IoT, Device Networking}{3.62}
+		\end{adjustwidth}
+		
+		\item \textbf{Data Engineering}:
+		\begin{adjustwidth}{5mm}{}
+			\skillbar{Data Structures}{4.85}\\ 
+			\skillbar{Algorithm Design}{4.35}
+			\skillbar{Data Analysis}{4.55}
+		\end{adjustwidth}		
+		
+		\item \textbf{Software}:
+		\begin{adjustwidth}{5mm}{}
+			\skillbar{Microsoft Office (Excel, Word, PowerPoint)}{4.75}\\ 
+			\skillbar{SolidWorks, FreeCAD, AutoCAD}{4}\\ 
+			\skillbar{Linux}{3.8}
+		\end{adjustwidth}
+		
+		\item \textbf{Languages}:
+		\begin{adjustwidth}{5mm}{}
+			\lang{French}{3.85}\\ 
+%			\lang{Spanish}{1.1}\\ 
+%			\lang{Indonesian}{1.7}
+		\end{adjustwidth}
+	\end{itemize}
+	
+\noindent\rule{\textwidth}{0.4pt}
+\section*{Work Experience}
+	
+	\work
+	{Investment Analyst}
+	{Vancouver, BC}
+	{Aligned Capital Partners / River Wealth}
+	{11/2024 - Ongoing}
+	{
+%		\item Developed scheduled \textbf{web scraping and ETL pipelines} with Celery Beat and Redis, centralizing a custom PostgreSQL database from disparate public and proprietary sources.
+		
+		\item Built an end-to-end \textbf{data pipeline} to extract, clean, and load data from over 15 heterogeneous sources (\textbf{files}, \textbf{APIs}, \textbf{web scraping}) into a custom-designed SQL schema, laying the foundation for scalable data analytics.
+		
+		\item Configured and maintained a \textbf{Linux-based server stack} (Fedora, Gunicorn, Nginx) to platform a Django application, making a roster of data analytics, reporting, and automation tools accessible to non-technical staff.
+		
+		\item Founded the company's \textbf{data assets program} by engineering a time-series repository of key performance indicators (KPIs) across 23$,$000 securities, enabling portfolio analysis and quantitative modeling.
+		
+		\item Automated recurring tasks in Python, eliminating over 20 hours of manual work per month and reducing the likelihood of human error.
+	}
+
+	\workbrief
+	{General Contractor}
+	{Calgary, AB}
+	{Independent}
+	{6/2024 – 8/2025}
+	
+	\workbrief
+	{Fair's Fair Books}
+	{Calgary, AB}
+	{Retail Clerk}
+	{1/2024 - 8/2024}
+	
+	
+	\work
+	{Liquid Energy}
+	{Calgary, AB}
+	{Co-Founder}
+	{3/2024 – 8/2025}
+	{
+		\item Researched the advent of intermittent energy sources (i.e. wind, solar) on the power grid, and the global market reaction.
+		\item Pitched a low-cost/low-efficiency compressed air energy storage method to investors, power plant owners, and grid administrators.
+	}
+	
+	\work
+	{Test Technologist}
+	{Burnaby, BC}
+	{IBC Technologies}
+	{6/2022 – 9/2023}
+	{
+		\item Enabled regulatory compliance by designing and implementing test processes, making use of high-powered pumps, power sources, and sensors. 
+		\item Set up dozens of boilers; safely connecting to gas lines, 120VAC power supplies, and near-boiling water circuits.
+		\item Automated testing with IoT microcontrollers and PLC devices, creating \textbf{cloud-connected data pipelines} to send controls and receive data from validation units.
+		\item \textbf{Automated data analysis} of high-volume datasets using MATLAB, reducing processing time from 20 minutes to under 3 minutes per iteration.
+		\item Engineered, manufactured, and deployed laser-based obstruction sensors and a responsive control upgrade to an \textbf{assembly line}, boosting station turnover speed by 25\% while simultaneously enhancing operator safety.
+	}
+		
+	\work
+	{Opinions Editor, Contributor}
+	{Burnaby, BC}
+	{The Peak Publications Society}
+	{10/2020 – 6/2022}
+	{
+		\item Managed the Opinions Section of a weekly newspaper, \textbf{coordinating a team} of 5 rotating student contributors and staff writers to each publish 500 words in face of strict production deadlines.
+		\item \textbf{Mentored and coached} writers of varying experience levels with editorial feedback, thematic guidance, and structural training to develop their voice and orchestrate their work with the greater section.
+	}
+	
+	\workbrief
+	{HD Concrete}
+	{Surrey, BC}
+	{Skilled Labour}
+	{2/2021 – 1/2022}
+	
+	
+	\work
+	{IT Technician (Internship)}
+	{Vancouver, BC}
+	{BC Cancer Research Centre}
+	{09/2018 – 01/2019}
+	{
+		\item Diagnosed and \textbf{resolved technical issues} across Windows, Mac, and Linux environments in a large-scale research facility, training adaptability with diverse technology stacks.
+		\item Configured and maintained network infrastructure (switches, routers, cables) to ensure \textbf{cybersecurity} compliance and preserve data channels across research departments.
+		\item Wrote internal \textbf{documentation} standardizing daily operations and foundational knowledge, closing a knowledge gap and facilitating uptake of future students.
+	}
+	
+	
+	\workbrief
+	{Steamworks Brewpub}
+	{Vancouver, BC}
+	{Expeditor Lead, Busser}
+	{09/2017 – 09/2018}
+
+	
+	\workbrief
+	{Vision Built Homes}
+	{Vancouver, BC}
+	{General Labour}
+	{4/2016 – 9/2016}
+
+	
+	\workbrief
+	{The Charles Bradlaugh}
+	{Northamptonshire, UK}
+	{Bartender}
+	{4/2015 – 8/2015}
+	
+	\workbrief
+	{White Spot Restaurants}
+	{Burnaby, BC}
+	{Line Cook}
+	{4/2014 – 4/2015}
+
+	\workbrief
+	{JB Hi-Fi}
+	{Sydney, AUS}
+	{Retail Clerk}
+	{10/2013 – 3/2014}
+
+	\workbrief
+	{Hunter Roofing}
+	{Surrey, BC}
+	{General Labour}
+	{4/2013 – 8/2013}
+
+	\workbrief
+	{Price Smart Foods}
+	{Burnaby, BC}
+	{Clerk}
+	{5/2011 – 8/2012}
+	
+
+\noindent\rule{\textwidth}{0.4pt}
+\section*{Projects}
+	
+	\project
+	{Hydroponics}
+	{04/2025 – 08/2025; Ongoing}
+	{Independent Project}
+	{
+		\item Designed and assembled a modular hydroponics system able to grow 36 spinach plants from seed to harvest with no manual input. 
+		\item Engineered esp32-based circuity with relays, sensors, and power converters to control grow lights, watering pumps, and fertilizer dispersion systems. 
+		\item Planning integration of a robotic arm to automate strawberry pollination using computer vision techniques.
+	}
+	
+	\project
+	{ROV – Underwater Surveying}
+	{02/2025 – Frozen (09/2025)}
+	{Collaborative Project}
+	{
+		\item Researched market potential for underwater surveying vehicles by talking to marine professionals in marine and regulatory industries, qualifying design requirements and constraints.
+		\item Designed a scalable, low-cost, modular carrier and relay vehicle for the ROV, enabling radio-frequency control for an underwater vehicle.
+		\item Sourced off-the-shelf components and used FreeCAD to design 3D printable parts to develop an assembly model for the carrier boat. 
+		\item Modelled mission electrical system requirements by calculating power load and mission parameters to optimize battery type and capacity against cost.
+	}
+	
+	\project
+	{Brewing}
+	{05/2018 - 09/2023}
+	{Hobby}
+	{
+		\item Produced over 1$,$000 bottles of beer over 22 batches, using self-developed recipes.
+		\item Optimized heat exchangers, pumps, airlocks, and valves to monitor and control the temperature, chemical composition, and filtration of beer throughout the stages of brewing.
+	}
+		
+	\project
+	{Map the System}
+	{01/2021 – 03/2024}
+	{Research Competition}
+	{
+		\item In a team of 4, published a 15-page report and multimedia presentation on the difficulties in accessing healthcare throughout BC.
+		\item Sourced data through interviews with pharmacists, doctors, and healthcare dependents from different backgrounds to understand the problem landscape.	
+	}
+	
+	\project
+	{Greenhouse Gas Emissions Audit}
+	{08/2020 – 04/2021}
+	{Comissioned by: Gabriola Island Futures}
+	{
+		\item Quantified Greenhouse Gas Emissions for the island community of Gabriola by surveying retail sources, productive sites, and utilities providers.
+		\item Delivered an emissions footprint calculator, summing consumption emissions across the supply chain CO2-equivalent values.
+	}
+	
+
+\noindent\rule{\textwidth}{0.4pt}	
+\section*{Education}
+	
+	\education
+		{Simon Fraser University}
+		{01/2019 - 05/2022}
+		{B.A.Sc Mathematics}
+		{
+			\item Real Analysis
+			\item Probability \& Statistics
+			\item Linear Algebra
+			\item Algebra II: Rings and Fields
+		}
+			
+	\education
+		{Simon Fraser University}
+		{09/2017 - 12/2018}
+		{B.A.Sc Engineering - Not Completed}
+		{
+			\item Process of Professional Writing
+			\item Graphical Communications
+		}
+	
+	\education
+		{Langara College}
+		{01/2015 - 05/2017}
+		{Associate Of Science Certificate - Not Completed}
+		{
+			\item Calculus III
+			\item Engineering Mechanics
+			\item Electromagnetism \& Optics
+		}
+		
+		
+\noindent\rule{\textwidth}{0.4pt}
+\section*{Certifications}
+	\certification
+		{Nuclear Energy Worker}
+		{Canadian Nuclear Safety Commission}
+		{09/2025 - 09/2030}
+
+
+	\certification
+		{Ocean AI and Technology Foundations}
+		{Canada's Ocean Supercluster}
+		{Attained: 06/2025}
+		
+	\certification
+		{Occupational First Aid - Level 1}
+		{Metro Safety Training}
+		{10/2021 - 10/2024}
+	
+	\certification
+		{Fall Protection}
+		{Metro Safety Training}
+		{06/2019 - 06/2022}
+		
+%	\certification
+%		{Boom Lift & Scissor Lift License}
+%		{Forte(?) Training}
+%		{06/2019 - 06/2022}
+		
+	\certification
+		{Occupational First Aid - Level 1}
+		{Metro Safety Training}
+		{10/2014 - 10/2017}
+		
+	\certification
+		{Class 5 Driver's License}
+		{ICBC}
+		{03/2012 - 04/2025}
+
+\noindent\rule{\textwidth}{0.4pt}
+\section*{Volunteering \& Leadership}
+
+		\leadership
+		{Triumf - ASPIRE Astrochemistry Lab}
+		{Vancouver, British Columbia}
+		{Automation Technologist}
+		{05/2025 - Ongoing}
+		{
+			\item Contributed to the publication of 2 papers: \begin{itemize}\vspace{-0.5em}
+				\item Astrochemistry; In Preparation 
+				\item Control Systems; In Preparation
+			\end{itemize}
+			\item Developed a Bash-based installer for EPICS, an industry-standard \textbf{lab control framework }for physics laboratories, mitigating a significant entry labour barrier for new students and staff.
+			\item Integrated a Python motor controller into the laboratory control system, \textbf{eliminating effective experimental variance} and reducing need for active engagement with the experiment over its hours-long runtime.
+		}
+
+	\leadership
+	{Beaty Biodiversity Museum - Vertebrate Lab}
+	{Vancouver, British Columbia}
+	{Laboratory Assistant}
+	{09/2025 - 11/2025}
+	{
+		\item Performed necropsies on animal carcasses, gathering tissue samples and recording specimen data.
+		\item Leveraged cross-departmental knowledge to bolster data quality (e.g. arthopod/plant identification from stomach contents).
+		\item Acted as caretaker to several dermestid beetle colonies while monitoring their cleaning of sample skeletons.
+	}
+	
+	\leadership
+	{Epic Fencing Club}
+	{Calgary, Alberta}
+	{Facilities Improvement, Athlete}
+	{4/2025 – 8/2025}
+	{
+		\item Soldered, crimped, and assembled 40 wiring harnesses for electric reels and pistes.
+		\item Installed infrastructure for custom ceiling-mounted cable reels, dramatically reducing wire clutter.
+		\item Validated and repaired weapons, body cords, and other equipment during tournaments.
+	}
+%	
+%	\leadership
+%	{Aries Pentathalon \& Fencing Club}
+%	{Calgary, Alberta}
+%	{Armourer}
+%	{6/2025 – 8/2025}
+%	{
+%		\item Diagnosed and repaired issues with broken scoreboxes and cable reels.
+%		\item Wrote a document on equipment maintenance and diagnostics, and sourced a requisite tools list for common repairs
+%	}
+	
+	\leadership
+	{IBC Technologies}                             
+	{Burnaby, British Columbia}                  
+	{Employee Committee – Engineering Representative}  
+	{03/2023 – 09/2023}                          
+	{                                            
+		\item Boosted workplace morale by setting up a community garden near the parking lot.
+		\item Boosted workplace morale by organizing a company-wide plant giveaway.
+		\item Organized and facilitated monthly company lunches, feeding over 200 employees.
+	}
+	
+	\leadership
+	{The Peak Publications Society}
+	{Burnaby, British Columbia}
+	{Board of Directors – Collective Representative}
+	{06/2021 – 12/2021}
+	{
+		\item Collaborated with financial advisors to manage a \$1.5 million investment account, finding a balance between financial and ethical values.
+		\item Researched, presented, and voted on governance issues, including operating budgets and long-term strategy.
+	}
+
+	\leadership
+	{SFU Fencing Team}
+	{Burnaby, British Columbia}
+	{Team Administrator, Athlete}
+	{09/2018 – 12/2021}
+	{
+		\item Raised \$500 for a nascent student athletics team by advertising and running a fencing tournament.	
+%		\item Negotiated and coordinated equipment rentals from the UBC fencing club to enable the event.
+	}
+	
+	\leadership
+	{SMA Negeri 5 Palangka Raya}
+	{Central Kalimantan, Indonesia}
+	{English Teacher}
+	{1/2013 - 3/2013}
+	{
+		\item Taught English to high-school-level students who had little prior English language exposure.
+	}
+
+%\section*{Hobbies}
+%	%brewing
+%	%food for eating
+%	%lampmaking
+%	
+
+
+\end{document}
