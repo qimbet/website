@@ -12,154 +12,159 @@
     <div id='sidebar-overlay'></div>
     <div id="container">
 
-      <aside id="sidebar">
-        <h2 class="sidebar-title">
-          <a href="/index.html">☰ Portfolio</a>
-        </h2>
+    <aside id="sidebar">
+      <h2 class="sidebar-title">
+        <a href="/index.html">☰ Portfolio</a>
+      </h2>
+
+    <div class="section">
+      <input type="checkbox" id="projects-toggle" checked>
+      <label for="projects-toggle">Projects</label>
+      <ul>
+
+        <!-- Technical Projects -->
+        <li>
+          <div class="section">
+            <input type="checkbox" id="technical-toggle">
+            <label for="technical-toggle">Technical</label>
+            <ul>
+              <li><a href="/technical/hydroponics.html">Hydroponics</a></li>
+              <li><a href="/technical/submarine.html">Submarine</a></li>
+              <li><a href="/technical/householdAutomation.html">Household Automation</a></li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Artistic Projects -->
+        <li>
+          <div class="section">
+            <input type="checkbox" id="hobbies-toggle">
+            <label for="hobbies-toggle">Artistic</label>
+            <ul>
+              <li><a href="/hobbies/brewing.html">Brewing</a></li>
+              <li><a href="/hobbies/cookbook.html">Cookbook</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
 
       <div class="section">
-        <input type="checkbox" id="projects-toggle" checked>
-        <label for="projects-toggle">Projects</label>
+        <input type="checkbox" id="blog-toggle" checked>
+        <label for="blog-toggle">Resources</label>
         <ul>
+          <li><a href="/resources/cadArchive.html">CAD Files</a></li>
+          <li><a href="/resources/circuitArchive.html">Circuit Diagrams</a></li>
+        </ul>
+      </div>      
 
-          <!-- Technical Projects -->
+      <div class="section">
+        <input type="checkbox" id="about-toggle" checked>
+        <label for="about-toggle">About / CV</label>
+        <ul>
+          <li><a href="/index.html">About Me</a></li>
+          <li><a href="/blog/blog.html">Blog</a></li>
           <li>
-            <div class="section">
-              <input type="checkbox" id="technical-toggle">
-              <label for="technical-toggle">Technical</label>
-              <ul>
-                <li><a href="/technical/hydroponics.html">Hydroponics</a></li>
-                <li><a href="/technical/submarine.html">Submarine</a></li>
-                <li><a href="/technical/householdAutomation.html">Household Automation</a></li>
-              </ul>
-            </div>
+            <a href="/resumes.html">CV PDF</a>
           </li>
-
-          <!-- Artistic Projects -->
-          <li>
-            <div class="section">
-              <input type="checkbox" id="hobbies-toggle">
-              <label for="hobbies-toggle">Artistic</label>
-              <ul>
-                <li><a href="/hobbies/brewing.html">Brewing</a></li>
-                <li><a href="/hobbies/cookbook.html">Cookbook</a></li>
-              </ul>
-            </div>
-          </li>
+          <li><a href="/timeline.html">Timeline</a></li>
         </ul>
       </div>
 
-        <div class="section">
-          <input type="checkbox" id="blog-toggle" checked>
-          <label for="blog-toggle">Resources</label>
-          <ul>
-            <li><a href="/resources/cadArchive.html">CAD Files</a></li>
-            <li><a href="/resources/circuitArchive.html">Circuit Diagrams</a></li>
-          </ul>
-        </div>      
+      <div class="section contact">
+        <label class="no-arrow">Contact</label>
+        <ul>
+          <li><a href="mailto:jacob@qimbet.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/qimbet/" target="_blank">LinkedIn</a></li>
+          <li><a href="https://github.com/qimbet" target="_blank">GitHub</a></li>
+          <li><a href="https://calendly.com/jacob-c-mattie/30min" target="_blank">Book a Coffee Chat</a></li>
+        </ul>
+      </div>
+    </aside>
+    <div id="sidebar-tab"><span>⟩</span></div>
+    
 
-        <div class="section">
-          <input type="checkbox" id="about-toggle" checked>
-          <label for="about-toggle">About / CV</label>
-          <ul>
-            <li><a href="/index.html">About Me</a></li>
-            <li><a href="/blog/blog.html">Blog</a></li>
-            <li>
-              <a href="/resumes.html">CV PDF</a>
-            </li>
-            <li><a href="/timeline.html">Timeline</a></li>
-          </ul>
-        </div>
+    <main id="content">
+      <h1>Food For Eating</h1>
+      <p>Originally published in Zine format under the pseudonym "Charlie".</p>
 
-        <div class="section contact">
-          <label class="no-arrow">Contact</label>
-          <ul>
-            <li><a href="mailto:jacob@qimbet.com">Email</a></li>
-            <li><a href="https://www.linkedin.com/in/qimbet/" target="_blank">LinkedIn</a></li>
-            <li><a href="https://github.com/qimbet" target="_blank">GitHub</a></li>
-            <li><a href="https://calendly.com/jacob-c-mattie/30min" target="_blank">Book a Coffee Chat</a></li>
-          </ul>
-        </div>
-      </aside>
-      <div id="sidebar-tab"><span>⟩</span></div>
-      
-      <!-- Main Content -->
-      <main id="content">
+      <!-- PDF Viewer -->
+      <div class="pdf-container">
+        <iframe 
+          src="../accessories/pdf/foodForEating.pdf" 
+          class="pdf-viewer">
+        </iframe>
+        <a href="../accessories/pdf/foodForEating.pdf" download="foodForEating.pdf" class="pdf-download">
+          <button>Download Cookbook</button>
+        </a>
+      </div>
+    </main>
 
-
-        
-        <h1>Welcome!</h1>
-        <p>Hello, I'm Jacob, a data and software-oriented engineer specializing in Python, SQL, Linux, embedded systems, and automation. Browse my Technical Projects, blog, and CV using the sidebar.</p>
-
-        <section id="hydroponics">
-          <h2>Hydroponics Automation</h2>
-          <p>Designed a fully automated modular hydroponics system using ESP32, relays, and sensors. Planning integration of robotic arm pollination using computer vision.</p>
-        </section>
-
-
-
-      </main>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 
     </div>
-<script>
-const sidebar = document.getElementById('sidebar');
-const tab = document.getElementById('sidebar-tab');
-const overlay = document.getElementById('sidebar-overlay');
 
-tab.addEventListener('click', () => {
-  sidebar.classList.toggle('open');
-  overlay.classList.toggle('active');
-  tab.classList.toggle('open'); // flip the symbol
-});
 
-overlay.addEventListener('click', () => {
-  sidebar.classList.remove('open');
-  overlay.classList.remove('active');
-  tab.classList.remove('open');
-});
-</script>
 
-<script>
-  // Get current page file name
-  const currentPage = window.location.pathname.split("/").pop();
+  <script>
+  const sidebar = document.getElementById('sidebar');
+  const tab = document.getElementById('sidebar-tab');
+  const overlay = document.getElementById('sidebar-overlay');
 
-  // Select all sidebar links
-  const links = document.querySelectorAll("#sidebar ul li a");
-
-  links.forEach(link => {
-    const href = link.getAttribute("href").split("/").pop();
-    if (href === currentPage) {
-      link.classList.add("active");
-    }
+  tab.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+    tab.classList.toggle('open'); // flip the symbol
   });
-</script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('active');
+    tab.classList.remove('open');
+  });
+  </script>
 
-  // find all active links (after your active-link logic has run)
-  document.querySelectorAll("#sidebar a.active").forEach(activeLink => {
+  <script>
+    // Get current page file name
+    const currentPage = window.location.pathname.split("/").pop();
 
-    // walk up the DOM and expand every parent .section
-    let section = activeLink.closest(".section");
+    // Select all sidebar links
+    const links = document.querySelectorAll("#sidebar ul li a");
 
-    while (section) {
-      const checkbox = section.querySelector('input[type="checkbox"]');
-      if (checkbox) {
-        checkbox.checked = true;
-        checkbox.disabled = true;   // lock it open
+    links.forEach(link => {
+      const href = link.getAttribute("href").split("/").pop();
+      if (href === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    // find all active links (after your active-link logic has run)
+    document.querySelectorAll("#sidebar a.active").forEach(activeLink => {
+
+      // walk up the DOM and expand every parent .section
+      let section = activeLink.closest(".section");
+
+      while (section) {
+        const checkbox = section.querySelector('input[type="checkbox"]');
+        if (checkbox) {
+          checkbox.checked = true;
+          checkbox.disabled = true;   // lock it open
+        }
+
+        // move to the next ancestor .section
+        section = section.parentElement?.closest(".section");
       }
 
-      // move to the next ancestor .section
-      section = section.parentElement?.closest(".section");
-    }
+    });
 
   });
+  </script>
 
-});
-</script>
-
-</body>
+  </body>
 
 </html>
 
