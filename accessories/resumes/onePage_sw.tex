@@ -1,0 +1,183 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{xparse}
+
+\pagestyle{plain}
+
+\newcommand{\education}[4]{%
+	\vspace{1.5mm}
+	\noindent
+	\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \\
+	\end{tabular*}%
+	\ifx&#4&% check if #4 is empty
+	% Do nothing if #4 is empty
+	\else
+	\vspace{0.5mm}
+	
+	\hspace*{4mm}\textbf{Key Coursework:}
+	\vspace{-3.5mm}
+	
+	\begin{itemize}
+		\setlength{\itemsep}{0pt}
+		\setlength{\topsep}{1pt}
+		\setlength{\parsep}{0pt}
+		\setlength{\leftskip}{4mm}
+		#4
+	\end{itemize}
+	\fi
+	\vspace{-2.5mm}
+}
+
+\newcommand{\leadership}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		
+		\noindent\textit{#3} \hfill #4 \\
+		\vspace{-5mm}
+		\begin{itemize}
+			
+			\setlength{\itemsep}{-1mm}   % Shrinks space between items
+			\setlength{\topsep}{-4mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+\newcommand{\work}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		\textit{#3} \hfill #4 \\
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+\newcommand{\workbrief}[4]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		\textit{#3} \hfill #4 \\
+		\vspace{1.8mm}
+	}
+}
+
+\NewDocumentCommand{\breaker}{O{0} O{2}}{ %2 optional args: top, bottom spacing
+	\vspace{-#1em}
+	\noindent\rule{\textwidth}{0.4pt}
+	\vspace{-#2em}
+}
+
+
+\begin{document}
+	\begin{center}
+		{\huge \bfseries Jacob Mattie} \\[0.5em]
+		Vancouver $|$ 778-710-7554 $|$ j\_mattie@live.ca \\
+		\href{https://github.com/qimbet}{https://github.com/qimbet} $|$ \href{https://www.linkedin.com/in/qimbet/}{https://www.linkedin.com/in/qimbet/}
+	\end{center}
+	
+	\vspace{-1.25em}
+	
+	\section*{Summary}
+		Full-Stack Engineer with a mathematics background. Specialized in data pipelines, databases, and automation. 
+		\begin{center}
+			\textbf{
+				Python, C++, SQL, Bash \quad $|$ \quad Linux, Windows \quad $|$ \quad Git, AWS, Django
+			}
+		\end{center}
+	
+\breaker
+
+\section*{Work Experience}
+		
+	\work
+	{Investment Analyst}
+	{Vancouver, BC}
+	{Aligned Capital Partners / River Wealth}
+	{11/2024 - Ongoing}
+	{				
+		\item Built ETL \textbf{data pipelines} merging over 15 sources (files, APIs, web scraping) into a PostgreSQL schema, enabling the use of \textbf{machine learning} techniques for investment decisions.
+		
+		\item Configured a \textbf{Linux-based server stack} (Fedora, Gunicorn, Nginx) to host a \textbf{Django} application built from scratch, making data analytics and automation tools accessible to administrative staff.
+		
+		\item Automated recurring tasks in Python, eliminating over 20 hours of manual work per month and reducing the likelihood of human error.
+	}
+
+	
+	\work
+	{Test Technologist}
+	{Burnaby, BC}
+	{IBC Technologies}
+	{6/2022 – 9/2023}
+	{	
+		\item Automated testing with IoT microcontrollers and PLC devices, creating \textbf{cloud-connected data pipelines} to send controls and receive data from validation units.
+		
+		\item \textbf{Automated data analysis} of high-volume datasets using MATLAB, reducing processing time from 20 minutes to under 3 minutes per iteration.
+	}
+
+	\work
+	{IT Technician (Internship)}
+	{Vancouver, BC}
+	{BC Cancer Research Centre}
+	{09/2018 – 01/2019}
+	{
+		\item Diagnosed and resolved technical issues across Windows, Mac, and Linux environments in a large-scale research facility, showing adaptability and \textbf{rapid problem-solving} skills.
+		
+		\item Configured and maintained network infrastructure and digital policy to ensure \textbf{cybersecurity} compliance and reliable data transmission across departments.
+	}
+
+\breaker	
+\section*{Education}
+	
+	\education
+		{Simon Fraser University}
+		{01/2019 - 05/2022}
+		{B.A.Sc  in Mathematics}
+		{}
+	\vspace{0.5em}
+
+\breaker
+\section*{Volunteering \& Leadership}
+
+	\leadership
+	{Triumf - ASPIRE Astrochemistry Lab}
+	{Vancouver, British Columbia}
+	{Automation Technologist}
+	{05/2025 - Ongoing}
+	{	
+		\item Contributed to the publication of 2 papers: 
+		\begin{itemize}\vspace{-0.5em}
+			\item Astrochemistry; In Preparation 
+			\item Control Systems; In Preparation
+		\end{itemize}
+		\item Developed a Bash-based installer for EPICS, an industry-standard \textbf{lab control framework }for physics laboratories, mitigating a significant entry labour barrier for new students and staff.
+		
+		\item Integrated a Python motor controller into the laboratory control system, \textbf{eliminating effective experimental variance} and reducing need for active engagement with the experiment over its runtime.
+	}
+
+
+\end{document}
