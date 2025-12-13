@@ -579,3 +579,7 @@ a:hover {
   color: var(--blue);
   text-decoration: underline;
 }
+
+.nested_folders {
+ overflow: hidden;  
+}
