@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.23)  10 DEC 2025 21:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.23)  15 DEC 2025 05:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -825,7 +825,7 @@ Package rerunfilecheck Info: File `cv_JM.out' has not changed.
 Here is how much of TeX's memory you used:
  19826 strings out of 469959
  376012 string characters out of 5469834
- 767355 words of memory out of 5000000
+ 767354 words of memory out of 5000000
  46311 multiletter control sequences out of 15000+600000
  629800 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -842,7 +842,7 @@ ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Jaco
 b/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/U
 sers/Jacob/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.
 pfb>
-Output written on cv_JM.pdf (5 pages, 168821 bytes).
+Output written on cv_JM.pdf (5 pages, 168813 bytes).
 PDF statistics:
  92 PDF objects out of 1000 (max. 8388607)
  13 named destinations out of 1000 (max. 500000)
