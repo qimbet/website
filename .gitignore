@@ -1,0 +1,4 @@
+*.out
+*.aux
+*.synctex.gz
+/accessories/resumes/*.txt
