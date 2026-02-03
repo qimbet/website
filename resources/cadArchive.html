@@ -29,7 +29,7 @@
               <ul>
                 <li><a href="/technical/hydroponics.html">Hydroponics</a></li>
                 <li><a href="/technical/submarine.html">Submarine</a></li>
-                <li><a href="/technical/householdAutomation.html">Household Automation</a></li>
+<!--                <li><a href="/technical/householdAutomation.html">Household Automation</a></li> -->
               </ul>
             </div>
           </li>
@@ -40,7 +40,7 @@
               <input type="checkbox" id="hobbies-toggle">
               <label for="hobbies-toggle">Artistic</label>
               <ul>
-                <li><a href="/hobbies/brewing.html">Brewing</a></li>
+<!--                <li><a href="/hobbies/brewing.html">Brewing</a></li>      -->
                 <li><a href="/hobbies/cookbook.html">Cookbook</a></li>
               </ul>
             </div>
@@ -52,8 +52,8 @@
           <input type="checkbox" id="blog-toggle" checked>
           <label for="blog-toggle">Resources</label>
           <ul>
-            <li><a href="/resources/cadArchive.html">CAD Files</a></li>
-            <li><a href="/resources/circuitArchive.html">Circuit Diagrams</a></li>
+            <li><a href="/resources/cadArchive.html">CAD Files</a></li>     
+ <!--           <li><a href="/resources/circuitArchive.html">Circuit Diagrams</a></li> -->
           </ul>
         </div>      
 
@@ -62,7 +62,7 @@
           <label for="about-toggle">About / CV</label>
           <ul>
             <li><a href="/index.html">About Me</a></li>
-            <li><a href="/blog/blog.html">Blog</a></li>
+<!--            <li><a href="/blog/blog.html">Blog</a></li>   -->
             <li>
               <a href="/resumes.html">CV PDF</a>
             </li>
@@ -85,19 +85,14 @@
       <!-- Main Content -->
       <main id="content">
 
-
-
         <h2>CAD Files</h2>
         <p>Click a section to expand its contents</p>
-
-
-
 
 
         <div id="filesList">
 
           <!-- Hydroponics Section -->
-          <details>
+          <details id="hydroponics">
             <summary>Hydroponics</summary>
 
             <div class="files-description">
@@ -186,7 +181,7 @@
           </details>
 
           <!-- Submarine Section -->
-          <details>
+          <details id="submarine">
             <summary>Submarine</summary>
             
               <div class="files-description">
@@ -271,7 +266,7 @@
           </details>
 
           <!-- Single-Use Projects Section -->
-          <details>
+          <details id="single-use">
             <summary>Single-Use Parts</summary>
             
               <div class="files-description">
@@ -304,7 +299,7 @@
           </details>
 
           <!-- Fencing Section -->
-          <details>
+          <details id="fencing">
             <summary>Fencing</summary>
             
               <div class="files-description">
@@ -344,7 +339,7 @@
           </details>
 
           <!-- Holders Section -->
-          <details>
+          <details id="holders">
             <summary>Holders</summary>
             
               <div class="files-description">
@@ -440,7 +435,7 @@
 
 
           <!-- Hardware Section -->
-          <details>
+          <details id="hardware">
             <summary>Hardware</summary>
             
               <div class="files-description">
@@ -500,7 +495,7 @@
 
 
           <!-- Triumf Section -->
-          <details>
+          <details id="triumf">
             <summary>TRIUMF</summary>
             
               <div class="files-description">
@@ -605,6 +600,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+</script>
+
+<script>
+  function openDetailsFromHash() {
+    const id = location.hash.slice(1);
+    if (!id) return;
+
+    const el = document.getElementById(id);
+    if (el && el.tagName === "DETAILS") {
+      el.open = true;
+      el.scrollIntoView({ block: "start" });
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", openDetailsFromHash);
+  window.addEventListener("hashchange", openDetailsFromHash);
 </script>
 
 </body>
