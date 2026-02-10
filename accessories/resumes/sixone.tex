@@ -1,0 +1,216 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{tikz}
+
+\pagestyle{plain}
+
+\newcommand{\leadership}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		
+		\noindent\textit{#3} \hfill #4 \\
+		\vspace{-5mm}
+		\begin{itemize}
+			
+			\setlength{\itemsep}{-1mm}   % Shrinks space between items
+			\setlength{\topsep}{-4mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+\newcommand{\project}[4]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+			\textit{#3}
+		\end{tabular*}
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}   % Shrink space between items
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#4
+		\end{itemize}
+	}
+}
+
+\newcommand{\work}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		\textit{#3} \hfill #4 \\
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+\newcommand{\workbrief}[4]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		\textit{#3} \hfill #4 \\
+		\vspace{1.8mm}
+	}
+}
+
+\newcommand{\lang}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Basic};
+		\node[above] at (7,0.08) {\scriptsize Fluent};
+	\end{tikzpicture}
+}
+
+\newcommand{\skillbar}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Novice};
+		\node[above] at (7,0.08) {\scriptsize Expert};
+	\end{tikzpicture}
+}
+
+
+\begin{document}
+	\begin{center}
+		{\huge \bfseries Jacob Mattie} \\[0.75em]
+		Vancouver $|$ 778-710-7554 $|$ j\_mattie@live.ca \\[0.15em]
+		\href{https://github.com/qimbet}{https://github.com/qimbet} $|$ \href{https://www.linkedin.com/in/qimbet/}{https://www.linkedin.com/in/qimbet/} \\[0.15em]
+		\href{www.qimbet.com}{www.qimbet.com}
+		
+	\end{center}
+	
+	\vspace{-1em}	
+	\noindent\rule{\textwidth}{0.4pt}
+	\vspace{-0.5em}
+	
+	\noindent
+	Full-Stack Engineer specialized in ETL pipelines, databases, and automation. Self-motivated, likes first principles more than technical debt.
+	
+	\vspace{0em}
+	
+	\begin{center}
+		\textbf{
+			Python, C++, SQL, Bash \quad $|$ \quad Django, Selenium \quad $|$ \quad Linux, Windows
+		}
+		\\
+		\vspace{1em}
+		
+		\makebox[\textwidth]{%
+			\rule[0.5ex]{0.2\textwidth}{0.4pt} \quad
+			\textbf{BSc Mathematics, 2022, Simon Fraser University} \quad
+			\rule[0.5ex]{0.2\textwidth}{0.4pt}%
+		}
+		
+	\end{center}
+	
+%	\vspace{0.5em}
+	
+	
+\section*{Work Experience}
+	
+	\work
+	{Investment Analyst}
+	{Vancouver, BC}
+	{Aligned Capital Partners / River Wealth}
+	{11/2024 - Ongoing}
+	{
+		\item Automated selenium web scraping using scheduled celery workers, tracking daily updates to over 23,000 financial data points.
+		
+		\item Single-handedly developed a Django-based financial analytics platform, from Linux server configuration to PostgreSQL database design and front-end development.
+		
+		\item Built layers of redundancy into data pipelines; including process state-tracking with retries, error logging, and results validation.
+		
+		\item Reduced company aggregate workload by 20\% by automating administrative tasks with Python.
+	}
+	
+	\work
+	{Test Technologist}
+	{Burnaby, BC}
+	{IBC Technologies}
+	{6/2022 – 9/2023}
+	{
+		\item Led compliance testing on pre-release boiler units.
+			
+		\item Automated hardware testing with IoT microcontrollers and PLC devices, creating cloud-connected data pipelines to asynchronously run validation tests.
+		
+		\item Automated data analysis for multi-million-point datasets using MATLAB, reducing certification validation time by over 600\%.
+	}
+		
+	\workbrief
+	{Section Editor, Writer}
+	{Burnaby, BC}
+	{The Peak Publications Society}
+	{10/2020 – 6/2022}
+	
+
+	
+	
+	\work
+	{IT Technician (Internship)}
+	{Vancouver, BC}
+	{BC Cancer Research Centre (\textnormal{BCCRC})}
+	{09/2018 – 01/2019}
+	{
+		\item Technical support across diverse hardware.
+		\item Managed user access permissions for the BCCRC network, ensuring data segregation and cybersecurity.
+	}
+	
+	
+	
+\noindent\rule{\textwidth}{0.4pt}
+\section*{Volunteering}
+
+		\leadership
+		{Triumf - ASPIRE Astrochemistry Lab}
+		{Vancouver, British Columbia}
+		{Automation Technologist}
+		{05/2025 - Ongoing}
+		{
+			\item Contributed to the publication of 2 scientific papers.
+			\item Developed a Bash installer for EPICS, an open-source lab control framework, facilitating modularity in experimental automation.
+			\item Automated sample wheel control through a Python driver for a stepper motor, controlled remotely via Raspberry Pi.
+		}
+
+	
+
+\end{document}
