@@ -122,7 +122,8 @@ overlay.addEventListener('click', () => {
 
 <script>
   // Get current page file name
-  const currentPage = window.location.pathname.split("/").pop();
+  let currentPage = window.location.pathname.split("/").pop();
+  if (!currentPage) currentPage = "index.html"
 
   // Select all sidebar links
   const links = document.querySelectorAll("#sidebar ul li a");
