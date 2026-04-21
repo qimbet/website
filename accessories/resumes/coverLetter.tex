@@ -1,0 +1,148 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{tikz}
+
+\pagestyle{plain}
+
+\newcommand{\leadership}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		
+		\noindent\textit{#3} \hfill #4 \\
+		\vspace{-5mm}
+		\begin{itemize}
+			
+			\setlength{\itemsep}{-1mm}   % Shrinks space between items
+			\setlength{\topsep}{-4mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+%\newcommand{\project}[4]{
+%	{
+%		\vspace{1.5mm}
+%		\noindent
+%		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+%			\textbf{#1} & #2 \\
+%			\textit{#3}
+%		\end{tabular*}
+%		\begin{itemize}
+%			\setlength{\itemsep}{-1mm}   % Shrink space between items
+%			\setlength{\topsep}{0mm}
+%			\setlength{\parsep}{0mm}
+%			#4
+%		\end{itemize}
+%	}
+%}
+
+\newcommand{\work}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		\textit{#3} \hfill #4 \\
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+\newcommand{\workbrief}[4]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		\textit{#3} \hfill #4 \\
+		\vspace{1.8mm}
+	}
+}
+
+\newcommand{\lang}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Basic};
+		\node[above] at (7,0.08) {\scriptsize Fluent};
+	\end{tikzpicture}
+}
+
+\newcommand{\skillbar}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Novice};
+		\node[above] at (7,0.08) {\scriptsize Expert};
+	\end{tikzpicture}
+}
+
+
+\begin{document}
+	\begin{center}
+		{\huge \bfseries Jacob Mattie} \\[0.75em]
+		Vancouver $|$ 778-710-7554 $|$ \href{mailto:jacob@qimbet.com}{jacob@qimbet.com}\\[0.25em]
+		
+		\href{https://github.com/qimbet}{https://github.com/qimbet} \textbar\ \href{https://www.linkedin.com/in/qimbet/}{https://www.linkedin.com/in/qimbet/} \textbar\
+		\href{www.qimbet.com}{www.qimbet.com}
+		
+	\end{center}
+	
+	\vspace{-1em}	
+	\noindent\rule{\textwidth}{0.4pt}
+	\vspace{2.5em}
+	
+	\noindent
+
+	To the Hiring Team,\\ 
+	
+	I will keep this brief, as I understand the saturation of the applicant market. I am an individual motivated by curiosity and communal wellbeing -- I believe that the best works come out of collaboration from experts in our own fields. I see this in my dragonboat team, my contributions to the ASPIRE lab at Triumf, and at work. \\
+	
+	My career has been characterized by exploration, which led me to pursue my degree in mathematics. As my perspective developed, I noticed that the core of many fields was in maths, and that by "learning the hard stuff first," I could more easily pursue my interdisciplinary goals. I have found this to be true, as I have been able to make meaningful contributions as a mechanical engineer, physicist, and full-stack software developer. Softening my skillset, I have worked front-of-house in restaurants \& bars, and rose to an editorial position at my university's student newspaper, which has enabled me to build diverse connections within the wealth of community that surrounds me. \\
+	
+	The breadth of experience that I bring makes me confident I am a great fit for the demands and culture at Traction Rec.\\
+	
+	I am self-motivated, capable, and take ownership of my work. I strive for first-principles understanding whenever possible, and understand the value of communication between peers when working in a team. \\
+	
+	Cordially, \\
+
+	\vspace{2em}
+
+
+
+Jacob
+	
+
+\end{document}

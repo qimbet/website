@@ -1,0 +1,237 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{tikz}
+
+\pagestyle{plain}
+
+\newcommand{\leadership}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		
+		\noindent#3 \hfill #4 \\
+		\vspace{-5mm}
+		\begin{itemize}
+			
+			\setlength{\itemsep}{-1mm}   % Shrinks space between items
+			\setlength{\topsep}{-4mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+\newcommand{\project}[4]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+			\textit{#3}
+		\end{tabular*}
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}   % Shrink space between items
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#4
+		\end{itemize}
+	}
+}
+
+\newcommand{\work}[6]{
+	{
+		\vspace{1.25mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		#3 \hfill #4 \\
+		
+		% --- Description block (only renders if non-empty) ---
+		\if\relax\detokenize{#5}\relax
+		\else
+		\vspace{-0.25em}
+		\begin{list}{}{\leftmargin=1mm \rightmargin=1mm}
+			\item {\small \textit{#5}}
+		\end{list}
+		\vspace{-1em}
+		\fi
+		
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#6
+		\end{itemize}
+	}
+}
+
+\newcommand{\workbrief}[4]{
+	{
+		\vspace{1.25mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		#3 \hfill #4 \\
+		\vspace{2mm}
+	}
+}
+
+\newcommand{\lang}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Basic};
+		\node[above] at (7,0.08) {\scriptsize Fluent};
+	\end{tikzpicture}
+}
+
+\newcommand{\skillbar}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Novice};
+		\node[above] at (7,0.08) {\scriptsize Expert};
+	\end{tikzpicture}
+}
+
+
+\begin{document}
+	\begin{center}
+		{\huge \bfseries Jacob Mattie} \\[0.75em]
+		Vancouver $|$ 778-710-7554 $|$ 
+		\href{mailto:jacob@qimbet.com}{jacob@qimbet.com} \\
+		[0.15em]
+		
+		\href{https://github.com/qimbet}{https://github.com/qimbet} $|$ \href{https://www.linkedin.com/in/qimbet/}{https://www.linkedin.com/in/qimbet/}  $|$
+		\href{www.qimbet.com}{www.qimbet.com}
+		
+	\end{center}
+	
+	\vspace{-1em}	
+	\noindent\rule{\textwidth}{0.4pt}
+	\vspace{-0.5em}
+	
+	\noindent
+	Full-Stack Engineer focused on ETL systems, data infrastructure, and automation in production environments. Builds resilient pipelines and end-to-end platforms, integrating LLM-based Agents with strong context management to accelerate development and improve system reliability. 
+
+	
+	\vspace{-1mm}
+	
+	\begin{center}
+		\textbf{
+			Python, C++, SQL, Bash \quad $|$ \quad Django, Selenium \quad $|$ \quad Linux (server ops) \\
+		}
+		\vspace{1em}
+		
+		\makebox[\textwidth]{%
+			\rule[0.5ex]{0.23\textwidth}{0.4pt} \quad
+			\textbf{BSc. Mathematics, 2022, Simon Fraser University} \quad
+			\rule[0.5ex]{0.23\textwidth}{0.4pt}
+		}
+		
+	\end{center}
+
+	
+	\vspace{-1em}
+\section*{Work Experience}
+	\vspace{-0.65em}
+	
+	\work
+	{Investment Analyst}
+	{Vancouver, BC}
+	{Aligned Capital Partners / River Wealth}
+	{11/2024 - Ongoing}
+	{Sole developer and system administrator responsible for greenfield development, including Linux server provisioning and data infrastructure design, supporting a Django platform integrating client and market data with regulated internal records.}
+	{
+		\item Engineered distributed scraping pipelines using Selenium and Celery workers, capturing and tracking 35,000+ daily financial data points with \textbf{stateful retries}, \textbf{validation}, and fault-tolerant logging.
+		
+		\item Structured the analytics platform to support future ML workflows, allowing progression from heuristic strategies to \textbf{quantitatively validated} investment models as data volume grows.
+		
+		\item Introduced \textbf{LLM-assisted} development workflows, leveraging Agents with structured context windows to accelerate iteration, automate boilerplate generation, and improve debugging efficiency across the codebase.
+		
+		\item Reduced aggregate operational workload by 20\% through targeted Python \textbf{automation} and process standardization.
+	}
+	
+	\workbrief
+	{Co-Founder}
+	{Calgary, AB}
+	{Liquid Energy}
+	{02/2024 - 08/2024}
+	
+	\work
+	{Test Technologist}
+	{Burnaby, BC}
+	{IBC Technologies}
+	{6/2022 – 9/2023}
+	{Hydronics lab technologist validating mechanical and digital performance of boilers, performing data analysis and infrastructure development, pioneering IoT integration and automation.}
+	{
+		\item Automated hardware \textbf{validation processes} by leveraging IoT microcontrollers and PLC systems, streaming test data into cloud-connected repositories for asynchronous analysis.
+		
+		\item Built high-throughput \textbf{data analysis} workflows in MATLAB for multi-million-point datasets, reducing certification validation time by over 600\%.
+	}
+		
+	\workbrief
+	{Section Editor, Writer}
+	{Burnaby, BC}
+	{The Peak Publications Society}
+	{10/2020 – 6/2022}
+	
+		
+	
+	\work
+	{IT Technician (Internship)}
+	{Vancouver, BC}
+	{BC Cancer Research Centre (\textnormal{BCCRC})}
+	{09/2018 – 01/2019}
+	{Level 1-2 IT Support Technician at a scientific research institute providing end-user support, network administration assistance, and system configuration across laboratory and administrative environments.}
+	{
+		\item Managed user access controls and permissions within a segregated research network, enforcing data isolation and cybersecurity policies across multiple user groups.
+		\item Assisted in network recovery during facility-wide outage caused by a malware incident, supporting administrators in restoring connectivity and validating system integrity across endpoints.
+	}
+	
+	
+	
+\noindent\rule{\textwidth}{0.4pt}
+\section*{Volunteering}
+		\vspace{-0.65em}
+
+		\leadership
+		{Automation Technologist}
+		{Vancouver, British Columbia}
+		{TRIUMF - Canada's Particle Accelerator}
+		{05/2025 - Ongoing}
+		{
+			\item Contributed the technical foundations that led to 3 scientific manuscripts in preparation on laboratory control systems and automation workflows.
+			\item Developed a modular control-system deployment pipeline using Bash and containerization, standardizing environment provisioning for students, researchers, and faculty across heterogeneous computing environments.
+			\item Engineered a Raspberry Pi-based stepper motor control system, including hardware wiring, GPIO-level driver implementation, and Python-based control interface through a transistor array for reliable, repeatable experimental control.
+		}
+
+	
+
+\end{document}

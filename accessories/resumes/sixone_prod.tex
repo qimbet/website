@@ -27,22 +27,22 @@
 	}
 }
 
-\newcommand{\project}[4]{
-	{
-		\vspace{1.5mm}
-		\noindent
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
-			\textbf{#1} & #2 \\
-			\textit{#3}
-		\end{tabular*}
-		\begin{itemize}
-			\setlength{\itemsep}{-1mm}   % Shrink space between items
-			\setlength{\topsep}{0mm}
-			\setlength{\parsep}{0mm}
-			#4
-		\end{itemize}
-	}
-}
+%\newcommand{\project}[4]{
+%	{
+%		\vspace{1.5mm}
+%		\noindent
+%		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+%			\textbf{#1} & #2 \\
+%			\textit{#3}
+%		\end{tabular*}
+%		\begin{itemize}
+%			\setlength{\itemsep}{-1mm}   % Shrink space between items
+%			\setlength{\topsep}{0mm}
+%			\setlength{\parsep}{0mm}
+%			#4
+%		\end{itemize}
+%	}
+%}
 
 \newcommand{\work}[5]{
 	{
@@ -62,59 +62,60 @@
 	}
 }
 
-\newcommand{\workbrief}[4]{
-	{
-		\vspace{1.5mm}
-		\noindent
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
-			\textbf{#1} & #2 \\
-		\end{tabular*}
-		\vspace{-5mm}
-		\textit{#3} \hfill #4 \\
-		\vspace{1.8mm}
-	}
-}
+%\newcommand{\workbrief}[4]{
+%	{
+%		\vspace{1.5mm}
+%		\noindent
+%		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+%			\textbf{#1} & #2 \\
+%		\end{tabular*}
+%		\vspace{-5mm}
+%		\textit{#3} \hfill #4 \\
+%		\vspace{1.8mm}
+%	}
+%}
 
-\newcommand{\lang}[2]{%
-	\noindent
-	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
-	\hspace{75mm}% Shift the line right
-	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
-		% Scale input #2 (range 1-5) to match 7-unit line
-		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
-		
-		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
-		\draw[thick] (0,0) -- (7,0);                       % Longer base line
-		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
-		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
-		\node[above] at (0,0.08) {\scriptsize Basic};
-		\node[above] at (7,0.08) {\scriptsize Fluent};
-	\end{tikzpicture}
-}
-
-\newcommand{\skillbar}[2]{%
-	\noindent
-	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
-	\hspace{75mm}% Shift the line right
-	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
-		% Scale input #2 (range 1-5) to match 7-unit line
-		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
-		
-		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
-		\draw[thick] (0,0) -- (7,0);                       % Longer base line
-		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
-		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
-		\node[above] at (0,0.08) {\scriptsize Novice};
-		\node[above] at (7,0.08) {\scriptsize Expert};
-	\end{tikzpicture}
-}
+%\newcommand{\lang}[2]{%
+%	\noindent
+%	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+%	\hspace{75mm}% Shift the line right
+%	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+%		% Scale input #2 (range 1-5) to match 7-unit line
+%		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+%		
+%		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+%		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+%		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+%		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+%		\node[above] at (0,0.08) {\scriptsize Basic};
+%		\node[above] at (7,0.08) {\scriptsize Fluent};
+%	\end{tikzpicture}
+%}
+%
+%\newcommand{\skillbar}[2]{%
+%	\noindent
+%	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+%	\hspace{75mm}% Shift the line right
+%	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+%		% Scale input #2 (range 1-5) to match 7-unit line
+%		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+%		
+%		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+%		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+%		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+%		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+%		\node[above] at (0,0.08) {\scriptsize Novice};
+%		\node[above] at (7,0.08) {\scriptsize Expert};
+%	\end{tikzpicture}
+%}
 
 
 \begin{document}
 	\begin{center}
 		{\huge \bfseries Jacob Mattie} \\[0.75em]
 		Vancouver $|$ 778-710-7554 $|$ \href{mailto:jacob@qimbet.com}{jacob@qimbet.com}\\[0.25em]
-		\href{https://github.com/qimbet}{https://github.com/qimbet} $|$ \href{https://www.linkedin.com/in/qimbet/}{https://www.linkedin.com/in/qimbet/} $|$
+		
+		\href{https://github.com/qimbet}{https://github.com/qimbet} \textbar\ \href{https://www.linkedin.com/in/qimbet/}{https://www.linkedin.com/in/qimbet/} \textbar\
 		\href{www.qimbet.com}{www.qimbet.com}
 		
 	\end{center}
@@ -156,7 +157,7 @@
 	{
 		\item Automated selenium web scraping using scheduled celery workers, tracking daily updates to over 23,000 financial data points.
 		
-		\item Single-handedly developed a Django-based financial analytics platform, from Linux server configuration to PostgreSQL database design and front-end development.
+		\item Single-handedly developed a Django-based (Python) financial analytics platform, from Linux server configuration to PostgreSQL database design and UI development, building a MVP to production software.
 		
 		\item Built layers of redundancy into data pipelines; including process state-tracking with retries, error logging, and results validation.
 		
@@ -176,12 +177,12 @@
 		\item Automated data analysis for multi-million-point datasets using MATLAB, reducing certification validation time by over 600\%.
 	}
 		
-	\workbrief
+	\work
 	{Section Editor, Writer}
 	{Burnaby, BC}
 	{The Peak Publications Society}
 	{10/2020 – 6/2022}
-	
+		{\item test}
 
 	
 	
