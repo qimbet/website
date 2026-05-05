@@ -1,0 +1,319 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,margin=0.56in]{geometry}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{tikz}
+
+\pagestyle{plain}
+
+\newcommand{\leadership}[5]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		
+		\noindent#3 \hfill #4 \\
+		\vspace{-5mm}
+		\begin{itemize}
+			
+			\setlength{\itemsep}{-1mm}   % Shrinks space between items
+			\setlength{\topsep}{-4mm}
+			\setlength{\parsep}{0mm}
+			#5
+		\end{itemize}
+	}
+}
+
+\newcommand{\project}[4]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+			\textit{#3}
+		\end{tabular*}
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}   % Shrink space between items
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#4
+		\end{itemize}
+	}
+}
+
+\newcommand{\work}[6]{
+	{
+		\vspace{1.25mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		#3 \hfill #4 \\
+		
+		% --- Description block (only renders if non-empty) ---
+		\if\relax\detokenize{#5}\relax
+		\else
+		\vspace{-0.2em}
+		
+		\begin{list}{}{\leftmargin=0mm \rightmargin=0mm}
+			\item {\fontsize{8.75}{11}\selectfont \textit{#5}}
+		\end{list}
+		\vspace{-3.5mm}
+		\fi
+		
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#6
+		\end{itemize}
+	}
+}
+
+\newcommand{\workbrief}[5]{
+	{
+		\vspace{1.25mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		#3 \hfill #4 \\
+		
+		\if\relax\detokenize{#5}\relax
+		\else
+		\vspace{-0.5em}
+		
+		\begin{list}{}{\leftmargin=0mm \rightmargin=0mm}
+			\item {\fontsize{8.75}{11}\selectfont \textit{#5}}
+		\end{list}
+		\fi
+	}
+}
+
+\newcommand{\lang}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Basic};
+		\node[above] at (7,0.08) {\scriptsize Fluent};
+	\end{tikzpicture}
+}
+
+\newcommand{\skillbar}[2]{%
+	\noindent
+	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
+	\hspace{75mm}% Shift the line right
+	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
+		% Scale input #2 (range 1-5) to match 7-unit line
+		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
+		
+		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
+		\draw[thick] (0,0) -- (7,0);                       % Longer base line
+		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
+		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
+		\node[above] at (0,0.08) {\scriptsize Novice};
+		\node[above] at (7,0.08) {\scriptsize Expert};
+	\end{tikzpicture}
+}
+
+
+\begin{document}
+	\begin{center}
+		{\huge \bfseries Jacob Mattie} \\[0.75em]
+		Vancouver $|$ 778-710-7554 $|$ 
+		\href{mailto:jacob@qimbet.com}{jacob@qimbet.com} \\
+		[0.15em]
+		
+		\href{https://github.com/qimbet}{https://github.com/qimbet} $|$ \href{https://www.linkedin.com/in/qimbet/}{https://www.linkedin.com/in/qimbet/}  $|$
+		\href{www.qimbet.com}{www.qimbet.com}
+		
+
+		\noindent\rule{\textwidth}{0.4pt}
+
+		\vspace{2.5mm}
+
+		Full-Stack Developer with a mathematics background. A scholar at heart; most motivated by a good question
+		\vspace{1em}
+		
+		\noindent
+		
+		\begin{tabularx}{\linewidth}{@{}X|X|X|X|X@{}}
+			
+			\textbf{Languages} &
+			\textbf{Data Pipelines} &
+			\textbf{Backend} &
+			\textbf{DevOps} &
+			\textbf{Infrastructure} \\
+			
+		{\small % Languages
+			\begin{tabular}{@{}l@{}}
+				Bash \\
+				C++ \\
+				MATLAB / Octave \\
+				Python \\
+				SQL \\
+			\end{tabular}
+		}
+		&
+		{\small % Data Pipelines
+			\begin{tabular}{@{}l@{}}
+				BeautifulSoup \\
+				 .csv, .pdf, .xlsx \\
+				JSON \\
+				PostgreSQL \\
+				Redis \\
+				Requests \\
+				Selenium \\ 
+			\end{tabular}
+		}
+		&
+		{\small % Backend
+			\begin{tabular}{@{}l@{}} 
+				Celery \\
+				Celery-Beat \\
+				Django \\
+				ETL pipelines \\
+				Gunicorn \\
+				Nginx	\\
+				REST APIs \\
+			\end{tabular}
+		}
+		&
+		{\small % DevOps
+			\begin{tabular}{@{}l@{}}
+				CI/CD \\ 
+				Git	\\
+				Debugging	\\
+				journalctl	\\
+				QA/Testing	\\
+				Refactoring	\\
+				rsync \\
+			\end{tabular}
+		}
+		&
+		{\small % Infrastructure
+			\begin{tabular}{@{}l l@{}}
+				Docker & Debian \\
+				ESP32 & Fedora\\
+				GPIO & SELinux \\
+				systemd & SSH \\
+				UART & Ubuntu \\
+				Windows & \\
+			\end{tabular}
+		}
+		
+		\end{tabularx}
+
+		\vspace{3.5mm}
+
+		\makebox[\textwidth]{%
+			\rule[0.5ex]{0.22\textwidth}{0.4pt} \quad
+			\textbf{BSc. Mathematics, 2022, Simon Fraser University} \quad
+			\rule[0.5ex]{0.23\textwidth}{0.4pt}
+		}
+	\end{center}
+
+
+
+	
+	\vspace{-1.25em}
+\section*{Work Experience}
+	\vspace{-0.65em}
+	
+	\work
+	{Full-Stack Developer}
+	{Vancouver, BC}
+	{Aligned Capital Partners / River Wealth}
+	{11/2024 - Ongoing}
+	{Q: What data exists that might let us predict stock growth and market behaviour?}
+	{
+		\item Automated 20\% of company-wide workload through Python scripting and process standardization.
+		
+		\item Configured a Linux-based server stack (Fedora, Gunicorn, Nginx) to host a Django application, making enabling internal access to data analytics and automation tools.
+		
+		\item Engineered distributed ETL pipelines using Selenium, Requests, and file-based ingestion, orchestrated via Redis-backed Celery workers, capturing and processing 45,000+ daily financial data points.
+		
+		
+		\item Implemented stateful retry and validation logic across ingestion workflows, ensuring fault tolerance, deduplication, and data consistency under unreliable external data sources.
+				
+		\item Designed and operated a CI/CD-like deployment pipeline using Git-based workflows, automated validation tests, and SSH/rsync-based artifact synchronization to a headless Linux environment.
+		
+		\item Developed production data pipelines supporting investment analysis workflows for a portfolio manager with \$220M+ in assets under management, providing reliable time-series financial data for decision support systems.
+	}
+	
+	\work
+	{Test Technologist}
+	{Burnaby, BC}
+	{IBC Technologies}
+	{6/2022 – 9/2023}
+	{Q: How can we safely optimize heat transfer from a boiler's combustion chamber?}
+	{
+		\item Automated hardware validation processes by leveraging IoT microcontrollers and PLC systems, streaming test data into cloud-connected repositories for analysis.
+		
+		\item Built high-throughput data analysis workflows in MATLAB for multi-million-point datasets, reducing certification validation time by over 600\%.
+	}
+		
+%	\work
+%	\workbrief
+%	{Section Editor, Writer}
+%	{Burnaby, BC}
+%	{The Peak Publications Society}
+%	{10/2020 – 6/2022}
+%	{Managed the Opinions section of a weekly student newspaper; sourcing, editing, fact-checking, and publishing content alongside a cross-disciplinary publications team.}
+%	{
+%		\item Managed a rotating team of 5 contributors, ensuring cohesion and writing quality throughout the section.
+%		
+%		\item Trained new writers in the process of argumentative writing, centralizing research in communication.
+%	
+%	}
+		
+	
+	\work
+	{IT Technician (Internship)}
+	{Vancouver, BC}
+	{BC Cancer Research Centre (\textnormal{BCCRC})}
+	{09/2018 – 01/2019}
+	{Q: How much digital freedom can we grant researchers without compromising network security?}
+	{
+		\item Managed user access controls and permissions within a segregated research network, enforcing data isolation and cybersecurity policies across multiple user groups.
+		
+		\item Assisted in network recovery during facility-wide outage caused by a malware incident, supporting administrators in restoring connectivity and validating system integrity across endpoints.
+	}
+	
+	
+	
+\noindent\rule{\textwidth}{0.4pt}
+\section*{Volunteering}
+		\vspace{-0.65em}
+
+		\work
+		{Automation Technologist}
+		{Vancouver, British Columbia}
+		{TRIUMF - Canada's Particle Accelerator}
+		{05/2025 - Ongoing}
+		{Q: What modern technological advances have resolved longstanding engineering problems?}
+		{
+			\item Contributed the technical foundations of 3 scientific publications (in preparation) on distributed control systems in nuclear physics laboratories.
+			
+			\item Developed a containerized EPICS deployment pipeline (Docker + Bash), leading a modernization initiative for a legacy control software operating over \$1.5B in infrastructure.
+			
+			\item Coded a Raspberry Pi-based stepper motor control system, merging hardware wiring, driver design, and Python-based interface through a transistor array for automated and repeatable experimental control.
+		}
+
+	
+
+\end{document}
