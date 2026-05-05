@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.23)  5 MAY 2026 02:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.3) (preloaded format=pdflatex 2025.4.23)  5 MAY 2026 02:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -679,7 +679,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 295--295
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--315
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
 
  []
 
@@ -699,7 +699,7 @@ Package rerunfilecheck Info: File `resume.out' has not changed.
 Here is how much of TeX's memory you used:
  19852 strings out of 469959
  375816 string characters out of 5469834
- 763937 words of memory out of 5000000
+ 763938 words of memory out of 5000000
  46337 multiletter control sequences out of 15000+600000
  630847 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -712,7 +712,7 @@ ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/Jacob/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/Jacob/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jacob/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on resume.pdf (1 page, 106124 bytes).
+Output written on resume.pdf (1 page, 106530 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  4 named destinations out of 1000 (max. 500000)
