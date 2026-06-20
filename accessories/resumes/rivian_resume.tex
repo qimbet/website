@@ -6,7 +6,7 @@
 \usepackage{changepage}
 \usepackage{tikz}
 
-\pagestyle{plain}
+\pagestyle{empty}
 
 
 \newcommand{\work}[6]{
@@ -62,47 +62,41 @@
 		
 		\noindent
 		
+
+
+		
 		\begin{tabularx}{\linewidth}{@{}X|X|X@{}}
 			
 			\textbf{Programming} &
 			\textbf{Connectivity} &
 			\textbf{Middleware} \\
 			
-		{\small % Programming
-			\begin{tabular}{@{}l@{}}
-				Bash Scripting \\
-				C++ \\
-				HTML5 / SCSS \\
-				MATLAB / Octave \\
-				Python \\
-				SQL \\
-			\end{tabular}
-		}
-		&
-		{\small % Connectivity
-			\begin{tabular}{@{}l@{}}
-				Ethernet \\
-				HTTP \\
-				JSON \\
-				REST APIs \\
-				UART \\
-				WiFi \\ 
-			\end{tabular}
-		}
-		&
-		{\small % Middleware
-			\begin{tabular}{@{}l@{}} 
-				EPICS \\
-				Gunicorn \\
-				journalctl \\
-				systemd \\
-				Linux \\
-				Redis	\\
-			\end{tabular}
-		}
-
-		
+			{\small
+				\begin{tabularx}{\linewidth}{@{}X X@{}}
+					Bash Scripting & Python \\
+					C++            & SQL \\
+					HTML5 / SCSS   & MATLAB \\
+				\end{tabularx}
+			}
+			&
+			{\small
+				\begin{tabularx}{\linewidth}{@{}X X@{}}
+					Ethernet & REST APIs \\
+					HTTP     & WiFi \\
+					JSON     & UART \\
+				\end{tabularx}
+			}
+			&
+			{\small
+				\begin{tabularx}{\linewidth}{@{}X X@{}}
+					EPICS      & systemd \\
+					Gunicorn   & Linux \\
+					journalctl & Redis \\
+				\end{tabularx}
+			}
+			
 		\end{tabularx}
+
 
 		\vspace{3.5mm}
 
@@ -145,9 +139,9 @@
 		
 		\item Led certification and \textbf{validation of hardware/software systems} for boilers under Canadian and U.S. regulations, triaging issues and coordinating cross-team resolution to support two product releases.
 		
-		\item Built an embedded \textbf{ESP32 control system} for an assembly station upgrade, adding a laser-based obstruction detector as an override to technician input controls, resulting in a 15\% throughput increase with higher operator safety.
+		\item Built an embedded \textbf{ESP32 control system} for an assembly station upgrade, adding a laser-based obstruction sensor as an override to technician controls, resulting in a 15\% throughput increase with higher operator safety.
 				
-		\item Built high-throughput data analysis workflows in MATLAB for multi-million-point datasets, \textbf{reducing validation time by 85\%}.
+		\item Built high-throughput data analysis workflows in MATLAB for multi-million-point datasets, \textbf{reducing test validation time by 85\%}.
 	}
 		
 	
@@ -183,7 +177,7 @@
 		{
 			\item Contributed the \textbf{technical foundations} of 3 scientific publications (in preparation) on distributed control systems in nuclear physics laboratories.
 			
-			\item Delivered a containerized EPICS \textbf{deployment pipeline} using Bash, leading a modernization initiative for legacy middleware operating over \$1.5B in infrastructure.
+			\item Delivered a containerized EPICS \textbf{deployment pipeline} using Bash, leading a modernization initiative for legacy middleware operating over \$1.5B in local infrastructure.
 			
 			\item Coded a Raspberry Pi-based stepper motor control system, merging hardware wiring, driver design, and Python interface through a transistor array for \textbf{automated and repeatable} experimental control.
 		}
