@@ -1,5 +1,5 @@
 \documentclass[a4paper,10pt]{article}
-\usepackage[a4paper,margin=0.56in]{geometry}
+\usepackage[a4paper,margin=0.5in]{geometry}
 \usepackage{enumitem}
 \usepackage{tabularx}
 \usepackage{hyperref}
@@ -8,42 +8,6 @@
 
 \pagestyle{plain}
 
-\newcommand{\leadership}[5]{
-	{
-		\vspace{1.5mm}
-		\noindent
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
-			\textbf{#1} & #2 \\
-		\end{tabular*}
-		
-		\noindent#3 \hfill #4 \\
-		\vspace{-5mm}
-		\begin{itemize}
-			
-			\setlength{\itemsep}{-1mm}   % Shrinks space between items
-			\setlength{\topsep}{-4mm}
-			\setlength{\parsep}{0mm}
-			#5
-		\end{itemize}
-	}
-}
-
-\newcommand{\project}[4]{
-	{
-		\vspace{1.5mm}
-		\noindent
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
-			\textbf{#1} & #2 \\
-			\textit{#3}
-		\end{tabular*}
-		\begin{itemize}
-			\setlength{\itemsep}{-1mm}   % Shrink space between items
-			\setlength{\topsep}{0mm}
-			\setlength{\parsep}{0mm}
-			#4
-		\end{itemize}
-	}
-}
 
 \newcommand{\work}[6]{
 	{
@@ -58,12 +22,13 @@
 		% --- Description block (only renders if non-empty) ---
 		\if\relax\detokenize{#5}\relax
 		\else
-		\vspace{-0.35em}
 		
-		\begin{list}{}{\leftmargin=0mm \rightmargin=0mm}
-			\item {\fontsize{8.75}{11}\selectfont \textit{#5}}
-		\end{list}
-		\vspace{-4mm}
+			\vspace{-1.15mm}
+			\begin{list}{}{\leftmargin=0mm \rightmargin=0mm}
+				\item {\fontsize{8.75}{11}\selectfont \textit{#5}}
+			\end{list}
+			\vspace{-4mm}
+		
 		\fi
 		
 		\begin{itemize}
@@ -75,64 +40,9 @@
 	}
 }
 
-\newcommand{\workbrief}[5]{
-	{
-		\vspace{1.25mm}
-		\noindent
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
-			\textbf{#1} & #2 \\
-		\end{tabular*}
-		\vspace{-5mm}
-		#3 \hfill #4 \\
-		
-		\if\relax\detokenize{#5}\relax
-		\else
-		\vspace{-0.5em}
-		
-		\begin{list}{}{\leftmargin=0mm \rightmargin=0mm}
-			\item {\fontsize{8.75}{11}\selectfont \textit{#5}}
-		\end{list}
-		\fi
-	}
-}
-
-\newcommand{\lang}[2]{%
-	\noindent
-	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
-	\hspace{75mm}% Shift the line right
-	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
-		% Scale input #2 (range 1-5) to match 7-unit line
-		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
-		
-		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
-		\draw[thick] (0,0) -- (7,0);                       % Longer base line
-		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
-		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
-		\node[above] at (0,0.08) {\scriptsize Basic};
-		\node[above] at (7,0.08) {\scriptsize Fluent};
-	\end{tikzpicture}
-}
-
-\newcommand{\skillbar}[2]{%
-	\noindent
-	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
-	\hspace{75mm}% Shift the line right
-	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
-		% Scale input #2 (range 1-5) to match 7-unit line
-		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
-		
-		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
-		\draw[thick] (0,0) -- (7,0);                       % Longer base line
-		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
-		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
-		\node[above] at (0,0.08) {\scriptsize Novice};
-		\node[above] at (7,0.08) {\scriptsize Expert};
-	\end{tikzpicture}
-}
-
-
 \begin{document}
 	\begin{center}
+		\vspace{-2.05mm}
 		{\huge \bfseries Jacob Mattie} \\[0.75em]
 		Vancouver $|$ 778-710-7554 $|$ 
 		\href{mailto:jacob@qimbet.com}{jacob@qimbet.com} \\
@@ -146,61 +56,48 @@
 
 		\vspace{2.05mm}
 
-		Robotics and automation enthusiast, .
+		Distributed systems specialist: integrating embedded control systems, Linux infrastructure, and telemetry pipelines into automated operational workflows.
+		
 		\vspace{1em}
 		
 		\noindent
 		
-		\begin{tabularx}{\linewidth}{@{}X|X|X|X@{}}
+		\begin{tabularx}{\linewidth}{@{}X|X|X@{}}
 			
 			\textbf{Programming} &
 			\textbf{Connectivity} &
-			\textbf{Middleware} &
-			\textbf{Testing/Data} \\
+			\textbf{Middleware} \\
 			
-		{\small % Languages
+		{\small % Programming
 			\begin{tabular}{@{}l@{}}
 				Bash Scripting \\
 				C++ \\
 				HTML5 / SCSS \\
-				Linux CLI \\
 				MATLAB / Octave \\
 				Python \\
 				SQL \\
 			\end{tabular}
 		}
 		&
-		{\small % Data Pipelines
+		{\small % Connectivity
 			\begin{tabular}{@{}l@{}}
-				Bluetooth \\ 
 				Ethernet \\
 				HTTP \\
 				JSON \\
 				REST APIs \\
-				TCP/IP \\
+				UART \\
 				WiFi \\ 
 			\end{tabular}
 		}
 		&
-		{\small % Backend
+		{\small % Middleware
 			\begin{tabular}{@{}l@{}} 
-				Docker	\\
 				EPICS \\
 				Gunicorn \\
 				journalctl \\
 				systemd \\
 				Linux \\
 				Redis	\\
-			\end{tabular}
-		}
-		&
-		{\small % DevOps
-			\begin{tabular}{@{}l@{}}
-				
-				CI/CD \\
-				ETL Pipelines \\
-				Root Cause Analysis	\\
-				Test Design \\
 			\end{tabular}
 		}
 
@@ -230,11 +127,11 @@
 	{11/2024 - Ongoing}
 	{Q: What data exists that might let us predict stock growth and market behaviour?}
 	{
-		\item Engineered \textbf{data ingestion} workflows across multiple transport mechanisms (HTTP requests, file-based feeds), implementing stateful retries, reconciliation, and consistency checks to mitigate upstream connectivity failures.
+		\item Engineered \textbf{data ingestion} workflows across multiple methods (HTTP requests, file-based feeds, web scraping), using stateful retries and validation checks to handle unreliable upstream sources.
 		
-		\item Fully provisioned and maintained \textbf{production Linux infrastructure} from bare-metal deployment through service orchestration (systemd, Nginx, Gunicorn), including failure recovery from system interruptions.
+		\item Fully provisioned and maintained headless \textbf{production Linux infrastructure} from bare-metal deployment through service orchestration (systemd, Nginx, Gunicorn).
 		
-		\item Built Python-based reporting systems that \textbf{automated full-day monitoring workflows} with on-demand data surfacing for cross-departmental staff, improving execution speed and operational consistency.
+		\item Built Python-based reporting systems that \textbf{automated data monitoring} workflows, reducing company-wide labour load by 20\% and mitigating potential of human error.
 	}
 	
 	\work
@@ -244,11 +141,11 @@
 	{6/2022 – 9/2023}
 	{Q: How can we safely optimize heat transfer from a boiler's combustion chamber?}
 	{
-		\item Automated hardware validation processes by leveraging IoT ESP32 microcontrollers and PLC systems, streaming test data into \textbf{cloud-connected repositories} for analysis and report generation.
+		\item Automated hardware validation processes through IoT ESP32 microcontrollers and PLC systems, streaming test data into \textbf{cloud-connected repositories} for analysis and report generation.
 		
-		\item Led certification and \textbf{validation of hardware/software systems} for boilers under Canadian and U.S. regulations, triaging issues and coordinating cross-team root-cause resolution to support two product releases.
+		\item Led certification and \textbf{validation of hardware/software systems} for boilers under Canadian and U.S. regulations, triaging issues and coordinating cross-team resolution to support two product releases.
 		
-		\item Built an embedded \textbf{ESP32 control system} for a boiler lift assembly station, integrating GPIO laser obstruction sensors to improve technician input handling, increasing throughput by 20\% and enhancing operator safety.
+		\item Built an embedded \textbf{ESP32 control system} for an assembly station upgrade, adding a laser-based obstruction detector as an override to technician input controls, resulting in a 15\% throughput increase with higher operator safety.
 				
 		\item Built high-throughput data analysis workflows in MATLAB for multi-million-point datasets, \textbf{reducing validation time by 85\%}.
 	}
@@ -264,7 +161,7 @@
 	{
 		\item Managed user access controls and permissions within a segregated research network, enforcing data isolation and \textbf{cybersecurity} policies across multiple user groups.
 		
-		\item Managed, diagnosed, and resolved \textbf{TCP/IP}-based network connectivity issues across a segmented domain environment, including endpoint access control and inter-device communication issues.
+		\item Managed, diagnosed, and resolved \textbf{TCP/IP}-based network connectivity issues across a segmented domain environment, including endpoint user access and inter-device communication.
 		
 		\item Assisted in network recovery during facility-wide outage caused by a malware incident, supporting administrators in restoring connectivity and validating \textbf{system integrity} across endpoints.
 	}
@@ -286,10 +183,9 @@
 		{
 			\item Contributed the \textbf{technical foundations} of 3 scientific publications (in preparation) on distributed control systems in nuclear physics laboratories.
 			
-			\item Developed a containerized EPICS \textbf{deployment pipeline} (Docker + Bash), leading a modernization initiative for legacy middleware operating over \$1.5B in infrastructure.
+			\item Delivered a containerized EPICS \textbf{deployment pipeline} using Bash, leading a modernization initiative for legacy middleware operating over \$1.5B in infrastructure.
 			
 			\item Coded a Raspberry Pi-based stepper motor control system, merging hardware wiring, driver design, and Python interface through a transistor array for \textbf{automated and repeatable} experimental control.
-			
 		}
 
 	
