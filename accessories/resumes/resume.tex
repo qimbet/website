@@ -6,48 +6,12 @@
 \usepackage{changepage}
 \usepackage{tikz}
 
-\pagestyle{plain}
+\pagestyle{empty}
 
-\newcommand{\leadership}[5]{
-	{
-		\vspace{1.5mm}
-		\noindent
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
-			\textbf{#1} & #2 \\
-		\end{tabular*}
-		
-		\noindent#3 \hfill #4 \\
-		\vspace{-5mm}
-		\begin{itemize}
-			
-			\setlength{\itemsep}{-1mm}   % Shrinks space between items
-			\setlength{\topsep}{-4mm}
-			\setlength{\parsep}{0mm}
-			#5
-		\end{itemize}
-	}
-}
-
-\newcommand{\project}[4]{
-	{
-		\vspace{1.5mm}
-		\noindent
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
-			\textbf{#1} & #2 \\
-			\textit{#3}
-		\end{tabular*}
-		\begin{itemize}
-			\setlength{\itemsep}{-1mm}   % Shrink space between items
-			\setlength{\topsep}{0mm}
-			\setlength{\parsep}{0mm}
-			#4
-		\end{itemize}
-	}
-}
 
 \newcommand{\work}[6]{
 	{
-		\vspace{1.25mm}
+		\vspace{0.75mm}
 		\noindent
 		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
 			\textbf{#1} & #2 \\
@@ -59,11 +23,11 @@
 		\if\relax\detokenize{#5}\relax
 		\else
 		\vspace{-0.2em}
-		
+		\vspace{-1.2mm}
 		\begin{list}{}{\leftmargin=0mm \rightmargin=0mm}
 			\item {\fontsize{8.75}{11}\selectfont \textit{#5}}
 		\end{list}
-		\vspace{-2.75mm}
+		\vspace{-4mm}
 		\fi
 		
 		\begin{itemize}
@@ -75,78 +39,26 @@
 	}
 }
 
-\newcommand{\workbrief}[5]{
-	{
-		\vspace{1.25mm}
-		\noindent
-		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
-			\textbf{#1} & #2 \\
-		\end{tabular*}
-		\vspace{-5mm}
-		#3 \hfill #4 \\
-		
-		\if\relax\detokenize{#5}\relax
-		\else
-		\vspace{-0.5em}
-		
-		\begin{list}{}{\leftmargin=0mm \rightmargin=0mm}
-			\item {\fontsize{8.75}{11}\selectfont \textit{#5}}
-		\end{list}
-		\fi
-	}
-}
-
-\newcommand{\lang}[2]{%
-	\noindent
-	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
-	\hspace{75mm}% Shift the line right
-	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
-		% Scale input #2 (range 1-5) to match 7-unit line
-		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
-		
-		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
-		\draw[thick] (0,0) -- (7,0);                       % Longer base line
-		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
-		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
-		\node[above] at (0,0.08) {\scriptsize Basic};
-		\node[above] at (7,0.08) {\scriptsize Fluent};
-	\end{tikzpicture}
-}
-
-\newcommand{\skillbar}[2]{%
-	\noindent
-	\makebox[0pt][l]{#1}% Print language name without taking horizontal space
-	\hspace{75mm}% Shift the line right
-	\begin{tikzpicture}[baseline={(0,-0.5ex)}]
-		% Scale input #2 (range 1-5) to match 7-unit line
-		\pgfmathsetmacro{\scaledlevel}{(#2 - 1) * (7/4)} 
-		
-		\filldraw[black] (\scaledlevel,0) circle (2.2pt);  % Scaled fluency level
-		\draw[thick] (0,0) -- (7,0);                       % Longer base line
-		\draw[thick] (0,0.1) -- (0,-0.1);                  % Tick at Basic
-		\draw[thick] (7,0.1) -- (7,-0.1);                  % Tick at Fluent
-		\node[above] at (0,0.08) {\scriptsize Novice};
-		\node[above] at (7,0.08) {\scriptsize Expert};
-	\end{tikzpicture}
-}
-
-
 \begin{document}
 	\begin{center}
+%		\vspace{-2.05mm}
 		{\huge \bfseries Jacob Mattie} \\[0.75em]
 		Vancouver $|$ 778-710-7554 $|$ 
 		\href{mailto:jacob@qimbet.com}{jacob@qimbet.com} \\
 		[0.15em]
 		
-		\href{https://github.com/qimbet}{https://github.com/qimbet} $|$ \href{https://www.linkedin.com/in/qimbet/}{https://www.linkedin.com/in/qimbet/}  $|$
-		\href{www.qimbet.com}{www.qimbet.com}
+		\href{https://github.com/qimbet}{github.com/qimbet} $|$ 
+		\href{https://www.linkedin.com/in/qimbet/}{linkedin.com/in/qimbet/}  $|$
+		\href{https://www.qimbet.com}{qimbet.com}
 		
 
 		\noindent\rule{\textwidth}{0.4pt}
 
 		\vspace{2.5mm}
 
-		Full-Stack Developer with a mathematics background. Most motivated by a good question.
+		Software developer with a \textbf{mathematics} background building \textbf{backend} systems, data pipelines, and \textbf{Linux}-based infrastructure. Focused on reliable \textbf{production software}, automation, and scalable \textbf{data processing} systems.
+		
+		
 		\vspace{1em}
 		
 		\noindent
@@ -230,7 +142,7 @@
 
 
 	
-	\vspace{-1.25em}
+	\vspace{-1.35em}
 \section*{Work Experience}
 	\vspace{-0.65em}
 	
@@ -286,7 +198,7 @@
 
 \vspace{-0.2em}
 \section*{Volunteering}
-		\vspace{-0.65em}
+		\vspace{-0.75em}
 
 		\work
 		{Automation Technologist}

@@ -1,0 +1,270 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{changepage}
+\usepackage{tikz}
+
+\pagestyle{empty}
+
+
+\newcommand{\work}[6]{
+	{
+		\vspace{1.25mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #2 \\
+		\end{tabular*}
+		\vspace{-5mm}
+		#3 \hfill #4 \\
+		
+		% --- Description block (only renders if non-empty) ---
+		\if\relax\detokenize{#5}\relax
+		\else
+		
+			\vspace{-1.15mm}
+			\begin{list}{}{\leftmargin=0mm \rightmargin=0mm}
+				\item {\fontsize{10}{11}\selectfont \textit{#5}}
+			\end{list}
+			\vspace{-4mm}
+		
+		\fi
+		
+		\begin{itemize}
+			\setlength{\itemsep}{-1mm}
+			\setlength{\topsep}{0mm}
+			\setlength{\parsep}{0mm}
+			#6
+		\end{itemize}
+	}
+}
+
+\newcommand{\certification}[3]{
+	{
+		\vspace{1.5mm}
+		\noindent
+		\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l r}
+			\textbf{#1} & #3 \\
+			\textit{#2}
+		\end{tabular*}
+	}
+}
+
+\begin{document}
+	\begin{center}
+		\vspace{-2.05mm}
+		{\huge \bfseries Jacob Mattie} \\[0.75em]
+		Vancouver $|$ 778-710-7554 $|$ 
+		\href{mailto:jacob@qimbet.com}{jacob@qimbet.com} \\
+		[0.15em]
+		
+		\href{https://github.com/qimbet}{github.com/qimbet} $|$ 
+		\href{https://www.linkedin.com/in/qimbet/}{linkedin.com/in/qimbet/}  $|$
+		\href{www.qimbet.com}{qimbet.com}
+		
+
+		\noindent\rule{\textwidth}{0.4pt}
+
+		\vspace{2.05mm}
+
+		Building and operating \textbf{distributed software} and \textbf{embedded systems} that interface with sensors, devices, and \textbf{industrial control} hardware in production environments.
+		
+		
+		\vspace{1em}
+		
+		\noindent
+		
+
+
+		
+		\begin{tabularx}{\linewidth}{@{}X|X|X|X@{}}
+			
+			\textbf{\underline{Controls \& Embedded}} &
+			\textbf{\underline{Data \& Telemetry}} &
+			\textbf{\underline{Distributed Backend}} &
+			\textbf{\underline{Infrastructure \& Ops}} \\
+			
+			
+			{\small
+				\begin{tabular}{@{}l@{}}
+					Docker \\
+					\textbf{EPICS} \\
+					ESP32 \\
+					JavaScript	\\
+					MATLAB \\
+					\textbf{PLC} Systems \\
+					\textbf{Python} \\
+					Raspberry Pi \\
+				\end{tabular}
+			}
+			&
+			{\small
+				\begin{tabular}{@{}l@{}}
+					ETL Pipelines \\
+					HTTP \\
+					JSON \\
+					REST APIs \\
+					SQL \\
+					UART \\
+					WiFi \\
+				\end{tabular}
+			}
+			&
+			{\small
+				\begin{tabular}{@{}l@{}}
+					Bash \\
+					Celery \\
+					Django \\
+					Gunicorn \\
+					Redis \\
+				\end{tabular}
+			}
+			&
+			{\small
+				\begin{tabular}{@{}l@{}}
+					CI/CD \\
+					Docker \\
+					\textbf{Git} \\
+					Linux \\
+					Nginx \\
+					\textbf{SSH} \\
+					systemd \\
+				\end{tabular}
+			}
+			
+		\end{tabularx}
+
+
+		\vspace{3.5mm}
+
+		\makebox[\textwidth]{%
+			\rule[0.5ex]{0.22\textwidth}{0.4pt} \quad
+			\textbf{BSc. Mathematics, 2022, Simon Fraser University} \quad
+			\rule[0.5ex]{0.23\textwidth}{0.4pt}
+		}
+	\end{center}
+
+
+
+	
+	\vspace{-1.25em}
+\section*{Work Experience}
+	\vspace{-0.65em}
+	
+	\work
+	{Investment Analyst: Data Architecture \& Backend Systems }
+	{Vancouver, BC}
+	{Aligned Capital Partners / River Wealth}
+	{11/2024 - Ongoing}
+	{Q: What data exists that might let us predict stock growth and market behaviour?}
+	{
+		\item Engineered \textbf{data ingestion} workflows across multiple methods (HTTP requests, file-based feeds, web scraping), using stateful retries and validation checks to handle unreliable upstream sources.
+		
+		\item Fully provisioned and maintained headless \textbf{production Linux infrastructure} from bare-metal deployment through service orchestration (systemd, Nginx, Gunicorn).
+		
+		\item Built Python-based reporting systems that \textbf{automated data monitoring} workflows, reducing company-wide labour load by 20\% and mitigating potential for human error.
+	}
+	
+	\work
+	{Test Technologist}
+	{Burnaby, BC}
+	{IBC Technologies}
+	{6/2022 - 9/2023}
+	{Q: How can we safely optimize heat transfer from a boiler's combustion chamber?}
+	{
+		\item Automated hardware validation processes through IoT ESP32 microcontrollers and PLC systems, streaming test data into \textbf{cloud-connected repositories} for analysis and report generation.
+		
+		\item Led certification and \textbf{validation of hardware/software systems} for boilers under Canadian and U.S. regulations, triaging issues and coordinating cross-team resolution to enable market release of two products.
+		
+		\item Built an embedded \textbf{ESP32 control system} for an assembly station lift, adding a laser-based obstruction sensor as a safety override to technician controls, resulting in a 15\% throughput increase.
+				
+		\item Built high-throughput data analysis workflows in MATLAB for multi-million-point datasets, \textbf{reducing test validation time by 85\%}.
+	}
+		
+	
+	
+	\work
+	{IT Technician (Internship)}
+	{Vancouver, BC}
+	{BC Cancer Research Centre (\textnormal{BCCRC})}
+	{09/2018 - 01/2019}
+	{Q: How much digital freedom can we grant researchers without compromising network security?}
+	{
+		\item Managed user access controls and permissions within a segregated research network, enforcing data isolation and \textbf{cybersecurity} policies across multiple user groups.
+		
+		\item Managed, diagnosed, and resolved \textbf{TCP/IP}-based network connectivity issues across a segmented domain environment, including endpoint user access and inter-device communication.
+		
+		\item Assisted in network recovery during facility-wide outage caused by a malware incident, supporting administrators in restoring connectivity and validating \textbf{system integrity} across endpoints.
+	}
+	
+	
+	
+\noindent\rule{\textwidth}{0.4pt} \vspace{-0.2em}
+
+\section*{Volunteering}
+		\vspace{-0.65em}
+
+		\work
+		{Automation Technologist}
+		{Vancouver, British Columbia}
+		{TRIUMF - Canada's Particle Accelerator}
+		{05/2025 - Ongoing}
+		{Q: What modern technological advances have resolved longstanding engineering problems?}
+		{
+			\item Contributed \textbf{technical foundations} for 3 scientific publications (in preparation) on EPICS implementation in nuclear physics laboratories.
+			
+%			\item Delivered a containerized EPICS \textbf{deployment pipeline} using Bash, contributing to a modernization initiative for legacy middleware operating over \$1.5B in local infrastructure.
+
+			\item Delivered a containerized \textbf{EPICS deployment pipeline} using Bash, enabling a reproducible control-system environment intended to support experimental automation workflows for staff and students.
+
+			
+			\item Coded a control driver for an undocumented \textbf{stepper motor}, merging hardware wiring, driver design, and Python interface for automated and repeatable experimental control.
+		}
+
+	\work
+	{Laboratory Assistant}
+	{Vancouver, British Columbia}
+	{Beaty Biodiversity Museum - Vertebrate Lab}
+	{09/2025 - 11/2025}
+	{Q: What creature is this?}
+	{
+		\item Performed necropsies on animal carcasses, gathering tissue samples and recording specimen health data.
+		\item Sought information from entomologists and botanists to identify animal stomach contents and improve specimen data depth.
+		\item Acted as caretaker to dermestid beetle colonies during their cleaning of skeletons.
+	}
+
+	\work
+	{Employee Committee: Engineering Representative}  
+	{Burnaby, British Columbia}                  
+	{IBC Technologies}                             
+	{03/2023 – 09/2023}       
+	{Q: How can we improve workplace culture?}                   
+	{                                            
+		\item Planned, purchased for, and implemented a company-wide plant giveaway, which was met with tremendous warmth from staff.
+		\item Organized, set up, and facilitated monthly company lunches, feeding over 200 employees.
+	}
+
+%	\work
+%	{The Peak Publications Society}
+%	{Burnaby, British Columbia}
+%	{Board of Directors – Collective Representative}
+%	{06/2021 – 12/2021}
+%	{}
+%	{	
+%		\item Collaborated with financial advisors to manage a \$1.5 million investment account, finding a balance between ethical values and financial realities.
+%		\item Researched, presented, and voted on governance issues, including operating budgets and long-term strategy.
+%	}
+
+\noindent\rule{\textwidth}{0.4pt} \vspace{-0.2em}
+
+
+\section*{Certifications}	
+	\vspace{-0.65em}
+	
+	\certification{Class 5 Driver's License}{03/2026 - 03/2031}{ICBC}
+	
+	\certification{Nuclear Energy Worker}{09/2025 - 09/2030}{Canadian Nuclear Safety Commission}
+	
+	
+\end{document}
