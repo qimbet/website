@@ -9,11 +9,8 @@
 
   <body>
   
-        <div id="container">
+    <div id="container">
     <div id="sidebar-container"></div>
-
-    <main> 
-    
 
     <main id="content">
       <h1>Food For Eating</h1>
@@ -35,67 +32,14 @@
 
     </div>
 
+  <script type="module">
+  import { initSidebar }
+      from "/website_js/sidebar.js";
 
+  await initSidebar();
+  </script> 
 
-  <script>
-  const sidebar = document.getElementById('sidebar');
-  const tab = document.getElementById('sidebar-tab');
-  const overlay = document.getElementById('sidebar-overlay');
-
-  tab.addEventListener('click', () => {
-    sidebar.classList.toggle('open');
-    overlay.classList.toggle('active');
-    tab.classList.toggle('open'); // flip the symbol
-  });
-
-  overlay.addEventListener('click', () => {
-    sidebar.classList.remove('open');
-    overlay.classList.remove('active');
-    tab.classList.remove('open');
-  });
-  </script>
-
-  <script>
-    // Get current page file name
-    const currentPage = window.location.pathname.split("/").pop();
-
-    // Select all sidebar links
-    const links = document.querySelectorAll("#sidebar ul li a");
-
-    links.forEach(link => {
-      const href = link.getAttribute("href").split("/").pop();
-      if (href === currentPage) {
-        link.classList.add("active");
-      }
-    });
-  </script>
-
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-
-    // find all active links (after your active-link logic has run)
-    document.querySelectorAll("#sidebar a.active").forEach(activeLink => {
-
-      // walk up the DOM and expand every parent .section
-      let section = activeLink.closest(".section");
-
-      while (section) {
-        const checkbox = section.querySelector('input[type="checkbox"]');
-        if (checkbox) {
-          checkbox.checked = true;
-          checkbox.disabled = true;   // lock it open
-        }
-
-        // move to the next ancestor .section
-        section = section.parentElement?.closest(".section");
-      }
-
-    });
-
-  });
-  </script>
-
-  </body>
+</body>
 
 </html>
 
