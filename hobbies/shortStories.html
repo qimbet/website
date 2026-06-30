@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob | Stories</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+
+  <body>
+  
+    <div id="container">
+    <div id="sidebar-container"></div>
+
+    <main id="content">
+      <h1>Dissonance</h1>
+      <p>Written for a writing group. Theme: Dissonance</p>
+
+      <!-- PDF Viewer -->
+      <div class="pdf-container">
+        <iframe 
+          src="../accessories/pdf/Dissonance.pdf" 
+          class="pdf-viewer">
+        </iframe>
+        <a href="../accessories/pdf/Dissonance.pdf" download="Dissonance.pdf" class="pdf-download">
+          <button>Download Cookbook</button>
+        </a>
+      </div>
+    </main>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+
+    </div>
+
+  <script type="module">
+  import { initSidebar }
+      from "/website_js/sidebar.js";
+
+  await initSidebar();
+  </script> 
+
+</body>
+
+</html>

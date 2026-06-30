@@ -1,0 +1,20 @@
+body {
+  --text: #e9f5ee;
+
+  /* canopy + illustration layer */
+  --bg:
+    /* tree illustration layer */
+    url("./haiku_illustrations/test_tree.png") center/contain no-repeat,
+
+    /* atmospheric glow overlays */
+    radial-gradient(circle at 50% 20%, rgba(120, 190, 140, 0.18), transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(30, 90, 60, 0.22), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(40, 120, 90, 0.18), transparent 60%),
+
+    /* deep base */
+    linear-gradient(to bottom,
+      #0b1a12 0%,
+      #08140f 35%,
+      #050e0a 100%
+    );
+}

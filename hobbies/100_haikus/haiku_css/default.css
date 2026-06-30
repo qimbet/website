@@ -1,0 +1,6 @@
+body {
+  --text: #eaeaea;
+  --bg:
+    radial-gradient(circle at 50% 30%, rgba(10,15,10,0.25), transparent 60%),
+    linear-gradient(to bottom, #010402 0%, #000000 100%);
+}

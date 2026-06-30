@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 Haikus</title>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Annapurna+SIL:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Annapurna SIL", serif;
+  font-weight: 450;
+  letter-spacing: 0.01em;
+
+  /* DEFAULT THEME (fallback) */
+  --text: #eaeaea;
+  --bg: #000;
+  --accent: #444;
+
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container {
+  width: min(90%, 800px);
+  text-align: center;
+}
+
+.counter {
+  color: #888;
+  margin-bottom: 2rem;
+  letter-spacing: 0.2em;
+}
+
+.haiku {
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  line-height: 1.8;
+  min-height: 12rem;
+}
+
+.controls {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* key fix */
+  gap: 1rem;
+
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  background: transparent;
+  border: 1px solid #444;
+  color: #ddd;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  border-color: #aaa;
+  color: white;
+}
+.home-btn {
+  display: block;
+  width: 100%;
+
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+
+  opacity: 0.6;
+  border: 1px solid #333;
+
+  color: #ddd;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+.home-btn:hover {
+  opacity: 1;
+  border-color: #666;
+  color: #fff;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+.row button {
+  flex: 1;
+  min-width: 120px;
+}
+
+</style>
+
+</head>
+
+<body>
+<div class="container">
+
+  <div class="counter" id="counter"></div>
+  <div class="haiku" id="haiku"></div>
+
+  <div class="controls">
+    <div class="row">
+        <button id="prev">Previous</button>
+        <button id="random">Random</button>
+        <button id="next">Next</button>
+    </div>
+
+    <div class="row">
+        <a class="home-btn" href="/index.html">Home</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let haikus = [];
+let current = 0;
+
+const params = new URLSearchParams(window.location.search);
+const requestedId = parseInt(params.get("id"), 10);
+
+// DOM
+const haikuEl = document.getElementById("haiku");
+const counterEl = document.getElementById("counter");
+
+// Theme link (injected dynamically)
+const themeLink = document.createElement("link");
+themeLink.rel = "stylesheet";
+document.head.appendChild(themeLink);
+
+// Load JSON
+async function loadHaikus() {
+  const res = await fetch("./haikus.json");
+  haikus = await res.json();
+
+  // resolve initial index
+  if (!Number.isNaN(requestedId)) {
+    const idx = haikus.findIndex(h => h.id === requestedId);
+    current = idx >= 0 ? idx : 0;
+  }
+
+  render();
+}
+
+// Render current haiku
+function render() {
+  const h = haikus[current];
+
+  // text
+  haikuEl.innerHTML = h.lines.map(line => `<div>${line}</div>`).join("");
+
+  // counter
+  counterEl.textContent = `${current + 1} / ${haikus.length}`;
+
+  // theme (fallback safe)
+  const theme = h.theme && h.theme.trim()
+    ? h.theme
+    : "default.css";
+
+  themeLink.href = `./haiku_css/${theme}`;
+
+  // update URL without reload (keeps navigation consistent)
+  const url = new URL(window.location);
+  url.searchParams.set("id", h.id);
+  window.history.replaceState({}, "", url);
+}
+
+// Navigation
+document.getElementById("prev").onclick = () => {
+  current = (current - 1 + haikus.length) % haikus.length;
+  render();
+};
+
+document.getElementById("next").onclick = () => {
+  current = (current + 1) % haikus.length;
+  render();
+};
+
+document.getElementById("random").onclick = () => {
+  current = Math.floor(Math.random() * haikus.length);
+  render();
+};
+
+// init
+loadHaikus();
+</script>
+
+
+</body>
+</html>

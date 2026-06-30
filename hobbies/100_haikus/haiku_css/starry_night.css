@@ -1,0 +1,5 @@
+body {
+  --bg:
+    radial-gradient(circle at 20% 30%, rgba(120,120,255,0.15), transparent 60%),
+    linear-gradient(to bottom, #02020a 0%, #000010 100%);
+}
