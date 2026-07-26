@@ -1,18 +1,30 @@
+const sidebarPromise = fetch("/website_components/sidebar.html")
+    .then(r => r.text());
+
 async function loadSidebar(containerId) {
     const el = document.getElementById(containerId);
     if (!el) return false;
 
-    let html = sessionStorage.getItem("sidebar");
-
-    if (!html) {
-        const html = await fetch("/website_components/sidebar.html")
-            .then(r => r.text());
-        sessionStorage.getItem("sidebar", html);
-    }
-
-    el.innerHTML = html;
+    el.innerHTML = await sidebarPromise;
     return true;
 }
+
+
+//async function loadSidebar(containerId) {
+//    const el = document.getElementById(containerId);
+//    if (!el) return false;
+//
+//    let html = sessionStorage.getItem("sidebar");
+//
+//    if (!html) {
+//        const html = await fetch("/website_components/sidebar.html")
+//            .then(r => r.text());
+//        sessionStorage.getItem("sidebar", html);
+//    }
+//
+//    el.innerHTML = html;
+//    return true;
+//}
 
 function setupSidebarToggle(container) {
     const sidebar = container.querySelector(":scope #sidebar");
