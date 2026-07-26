@@ -1,30 +1,4 @@
-const sidebarPromise = fetch("/website_components/sidebar.html")
-    .then(r => r.text());
 
-async function loadSidebar(containerId) {
-    const el = document.getElementById(containerId);
-    if (!el) return false;
-
-    el.innerHTML = await sidebarPromise;
-    return true;
-}
-
-
-//async function loadSidebar(containerId) {
-//    const el = document.getElementById(containerId);
-//    if (!el) return false;
-//
-//    let html = sessionStorage.getItem("sidebar");
-//
-//    if (!html) {
-//        const html = await fetch("/website_components/sidebar.html")
-//            .then(r => r.text());
-//        sessionStorage.getItem("sidebar", html);
-//    }
-//
-//    el.innerHTML = html;
-//    return true;
-//}
 
 function setupSidebarToggle(container) {
     const sidebar = container.querySelector(":scope #sidebar");
@@ -88,13 +62,14 @@ function lockActiveSectionsOpen(container) {
         });
 }
 
-export async function initSidebar(containerId = "sidebar-container") {
-    const loaded = await loadSidebar(containerId);
-    if (!loaded) return;
+export function initSidebar() {
+    const container = document.getElementById("sidebar-container");
 
-    const container = document.getElementById(containerId);
+    if (!container) return;
 
     setupSidebarToggle(container);
     highlightCurrentPage(container);
     lockActiveSectionsOpen(container);
 }
+
+initSidebar();

@@ -9,7 +9,97 @@
 
   <body>
     <div id="container">
-    <div id="sidebar-container"></div>
+
+    <!-- SIDEBAR START -->
+
+<div id="sidebar-container">
+  <aside id="sidebar">
+    <h2 class="sidebar-title">
+      <a href="/index.html">☰ Home</a>
+    </h2>
+
+    <div class="section nested_folders">
+      <input type="checkbox" id="projects-toggle" checked>
+      <label for="projects-toggle">Projects</label>
+      <ul>
+
+        <!-- Technical Projects -->
+        <li>
+          <div class="section nested_folders">
+            <input type="checkbox" id="technical-toggle">
+            <label for="technical-toggle">Technical</label>
+
+            <ul>
+              <li><a href="/technical/hydroponics.html">Hydroponics</a></li>
+              <li><a href="/technical/submarine.html">Submarine</a></li>
+            </ul>
+
+          </div>
+        </li>
+
+        <!-- Artistic Projects -->
+        <li>
+          <div class="section nested_folders">
+            <input type="checkbox" id="hobbies-toggle">
+            <label for="hobbies-toggle">Artistic</label>
+
+              <ul>
+
+                <li>
+                  <div class="section nested_folders">
+                    <input type="checkbox" id="writing-toggle">
+                    <label for="writing-toggle">Writing</label>
+
+                    <ul>
+                      <li><a href="/hobbies/cookbook.html">Cookbook</a></li>
+                      <li><a href="/hobbies/shortStories.html">Short Stories</a></li>
+                      <li><a href="/hobbies/100_haikus/haiku_display.html">100 Haikus</a></li>
+                    </ul>
+
+                  </div>
+                </li>
+
+              </ul>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section nested_folders">
+      <input type="checkbox" id="blog-toggle" checked>
+      <label for="blog-toggle">Resources</label>
+      <ul>
+        <li><a href="/resources/cadArchive.html">CAD Files</a></li>
+      </ul>
+    </div>      
+
+    <div class="section nested_folders">
+      <input type="checkbox" id="about-toggle" checked>
+      <label for="about-toggle">About</label>
+      <ul>
+        <li><a href="/index.html">About</a></li>
+        <li>
+          <a href="/resumes.html">Resumes and Templates</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section contact">
+      <label class="no-arrow">Contact</label>
+      <ul>
+        <li><a href="mailto:jacob@qimbet.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/qimbet/" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/qimbet" target="_blank">GitHub</a></li>
+        <li><a href="https://calendly.com/jacob-c-mattie/30min" target="_blank">Let's get coffee</a></li>
+      </ul>
+    </div>
+  </aside>
+  <div id="sidebar-tab"><span>⟩</span></div>
+  <div id="sidebar-overlay"></div>
+</div>
+
+<!-- SIDEBAR END -->
 
     <main id="content">
 
@@ -36,12 +126,11 @@
 
     </div>
 
-<script type="module">
-import { initSidebar }
-    from "/website_js/sidebar.js";
+<!-- SIDEBAR JAVASCRIPT START -->
 
-await initSidebar();
-</script>
+<script type="module" src="/website_js/sidebar.js"></script>
+
+<!-- SIDEBAR JAVASCRIPT END -->
 
 </body>
 
