@@ -2,8 +2,13 @@ async function loadSidebar(containerId) {
     const el = document.getElementById(containerId);
     if (!el) return false;
 
-    const html = await fetch("/website_components/sidebar.html")
-        .then(r => r.text());
+    let html = sessionStorage.getItem("sidebar");
+
+    if (!html) {
+        const html = await fetch("/website_components/sidebar.html")
+            .then(r => r.text());
+        sessionStorage.getItem("sidebar", html);
+    }
 
     el.innerHTML = html;
     return true;
