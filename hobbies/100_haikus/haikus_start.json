@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "lines": [
+      "One Hundred Haikus",
+      "Dedicated To The Night",
+      "By Jacob Mattie"
+    ],
+    "theme":"default.css"
+
+  },
+
+  {
+    "id": 2,
+    "lines": [
+      "I am not yet done",
+      "Transferring my written work",
+      "From page to the screen"
+    ],
+    "theme":"forest_night.css"
+  },
+
+  {
+    "id": 3,
+    "lines": [
+      "Thanks for your patience",
+      "My free time is oft at night",
+      "Which is when I sleep "
+    ],
+    "theme":"starry_night.css"
+  }
+
+]
