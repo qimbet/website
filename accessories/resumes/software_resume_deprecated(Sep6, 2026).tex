@@ -56,57 +56,75 @@
 
 		\vspace{2.5mm}
 
-		Full-stack software developer with a \textbf{mathematics} background connecting data intake systems to API design and clean UI. Reliability-focused \textbf{production software} from architecture to development.
+		Software developer with a \textbf{mathematics} background building \textbf{backend} systems, data pipelines, and \textbf{Linux}-based infrastructure. Focused on reliable \textbf{production software}, automation, and scalable \textbf{data processing} systems.
 		
 		
 		\vspace{1em}
 		
 		\noindent
 		
-		\begin{tabularx}{\linewidth}{@{}X|X|X|X@{}}
+		\begin{tabularx}{\linewidth}{@{}X|X|X|X|X@{}}
 			
 			\textbf{Languages} &
-			\textbf{Data} &
-			\textbf{Testing} &
-			\textbf{Tools} \\
+			\textbf{Data Pipelines} &
+			\textbf{Backend} &
+			\textbf{DevOps} &
+			\textbf{Infrastructure} \\
 			
 		{\small % Languages
 			\begin{tabular}{@{}l@{}}
 				Bash \\
 				C++ \\
-				C\# \\
+				HTML5 / SCSS \\
+				MATLAB / Octave \\
 				Python \\
 				SQL \\
 			\end{tabular}
 		}
 		&
-		{\small % Data
+		{\small % Data Pipelines
 			\begin{tabular}{@{}l@{}}
-				ACID APIs \\
-				CRUD \\
+				BeautifulSoup \\
+				JSON \\
 				PostgreSQL \\
-				REST \\
-				Redis \\ 
+				Redis \\
+				Requests \\
+				Selenium \\ 
 			\end{tabular}
 		}
 		&
-		{\small % Testing
+		{\small % Backend
 			\begin{tabular}{@{}l@{}} 
-				Playwright \\ 
-				End-to-End \\
-				Test Automation \\
-				Log Tracing \\
+				Celery \\
+				Celery-Beat \\
+				Django \\
+				ETL pipelines \\
+				Gunicorn \\
+				Nginx	\\
+				REST APIs \\
 			\end{tabular}
 		}
 		&
-
-		{\small % Tools
-			\begin{tabular}{@{}l@{}} 
-				AI Harnesses \\ 
-				CLI-navigation \\
-				CI/CD \\
-				Docker \\
-				vim \\
+		{\small % DevOps
+			\begin{tabular}{@{}l@{}}
+				CI/CD \\ 
+				Git	\\
+				Debugging	\\
+				journalctl	\\
+				QA/Testing	\\
+				Refactoring	\\
+				rsync \\
+			\end{tabular}
+		}
+		&
+		{\small % Infrastructure
+			\begin{tabular}{@{}l l@{}}
+				Agentic AI & Claude Code \\
+				Docker & esp32 \\
+				GPIO & Linux \\
+				SELinux & SSH \\
+				systemd & UART \\
+				Windows &  \\
 			\end{tabular}
 		}
 		
@@ -129,24 +147,21 @@
 	\vspace{-0.65em}
 	
 	\work
-	{Quantiative Researcher — Full-Stack}
+	{Investment Analyst — Data Architecture \& Backend Systems }
 	{Vancouver, BC}
-	{Private Practice: River Wealth}
+	{Aligned Capital Partners / River Wealth}
 	{11/2024 - Ongoing}
 	{Q: What data exists that might let us predict stock growth and market behaviour?}
 	{
-		\item Built production data pipelines scraping daily performance metrics for over 45,000 financial instruments with Redis, Celery workers, and Celery-Beat scheduling within a Django framework.
+		\item Developed production data pipelines supporting investment\textbf{ analysis workflows} for a portfolio manager with \$220M+ in assets under management, providing reliable time-series financial data for decision support systems.
 		
-		\item Designed fault-tolerance infrastructure to accommodate unreliable external data sources, surfacing errors via journalctl log tracking on across stratified fault levels.
+		\item Engineered \textbf{distributed ETL pipelines} using Selenium, Requests, and file-based ingestion, orchestrated via Redis-backed Celery workers, capturing and processing 45,000+ daily financial data points.
 		
-		\item Fully provisioned the office's IT stack through the configuration of a headless local linux server's systemd files through SSH, ensuring maximal uptime of the data engine.
+		\item Implemented \textbf{stateful retry and validation} logic across ingestion workflows, ensuring fault tolerance, deduplication, and data consistency under unreliable external data sources.
 		
-%		\item Implemented \textbf{stateful retry and validation} logic across ingestion workflows, ensuring fault tolerance, deduplication, and data consistency under unreliable external data sources.
-%		
-%		\item Configured a \textbf{headless Linux}-based server stack (Fedora, Gunicorn, Nginx) to host a Django application, enabling internal access to data analytics and automation tools.
+		\item Configured a \textbf{headless Linux}-based server stack (Fedora, Gunicorn, Nginx) to host a Django application, enabling internal access to data analytics and automation tools.
 		
-%		\item Designed and operated a\textbf{ CI/CD-like deployment} pipeline using Git-based workflows, automated validation tests, and SSH/rsync-based artifact synchronization to a headless Linux environment.
-		\item Developed bash-based CI/CD tooling using rsync, git, and custom logic to validate code stability when pushing changes from development environments to production. 
+		\item Designed and operated a\textbf{ CI/CD-like deployment} pipeline using Git-based workflows, automated validation tests, and SSH/rsync-based artifact synchronization to a headless Linux environment.
 		
 		\item \textbf{Automated 20\%} of company-wide workload through Python scripting and process standardization.
 	}
